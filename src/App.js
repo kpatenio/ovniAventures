@@ -11,8 +11,8 @@ import {
 import LandingPage from './components/LandingPage';
 import Header from './components/Header';
 import GamePageSolo from './components/GamePageSolo';
-import GamePageMultiPlayer from './components/GamePageMultiplayer';
-import LobbyPageMultiplayer from './components/LobbyPageMultiplayer';
+import GamePageMultiPlayer from './components/multiplayer/GamePageMultiplayer';
+import LobbyPageMultiplayer from './components/multiplayer/LobbyPageMultiplayer';
 
 function App() {
 

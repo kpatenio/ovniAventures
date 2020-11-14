@@ -1,27 +1,38 @@
 import logo from './logo.svg';
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
-import { Button } from 'semantic-ui-react';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import LandingPage from './components/LandingPage';
+import Header from './components/Header';
+import GamePageSolo from './components/GamePageSolo';
+import GamePageMultiPlayer from './components/multiplayer/GamePageMultiplayer';
+import LobbyPageMultiplayer from './components/multiplayer/LobbyPageMultiplayer';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button className="App-button">Click Me!</Button>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header/>
+        <Switch>
+          <Route exact path="/">
+            <LandingPage/>
+          </Route>
+          <Route path="/solo">
+            <GamePageSolo/>
+          </Route>
+          <Route path="/multijoueur">
+            <LobbyPageMultiplayer/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

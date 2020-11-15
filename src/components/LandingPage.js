@@ -10,7 +10,11 @@ import {
 import {
     useHistory
 } from 'react-router-dom';
+import socketIOClient from 'socket.io-client';
 import NameModal from './modals/NameModal';
+
+const ENDPOINT = "http://127.0.0.1:4001";
+const socket = socketIOClient(ENDPOINT);
 
 function LandingPage() {
     const [isNameModalOpen, setIsNameModalOpen] = useState(false);
@@ -34,14 +38,16 @@ function LandingPage() {
         setIsNameModalOpen(false)
     }
 
-    const onClickConfirmNameModal = (e) => {
-        if (e.target.value !== '') {
+    const onClickConfirmNameModal = () => {
+        if (!isInvalidName) {
             // TODO - verify name in session
+            console.log('modal clicked!')
             setIsInvalidName(false);
             setIsNameModalOpen(false);
-            history.push('/'+mode);
-        } else {
 
+            socket.emit('player join', playerName);
+
+            history.push('/'+mode);
         }
     }
 
@@ -49,6 +55,7 @@ function LandingPage() {
         if (e.target.value !== '') {
             // TODO - verify name in session
             setIsInvalidName(false);
+            setPlayerName(e.target.value);
         } else {
             setIsInvalidName(true);
         }

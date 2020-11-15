@@ -15,6 +15,7 @@ import NameModal from './modals/NameModal';
 function LandingPage() {
     const [isNameModalOpen, setIsNameModalOpen] = useState(false);
     const [playerName, setPlayerName] = useState('')
+    const [isInvalidName, setIsInvalidName] = useState(true);
     const [mode, setMode] = useState('')
     const history = useHistory();
 
@@ -30,13 +31,27 @@ function LandingPage() {
     }
 
     const onClickCancelNameModal = () => {
-        setIsNameModalOpen(false);
+        setIsNameModalOpen(false)
     }
 
-    const onClickConfirmNameModal = () => {
-        setIsNameModalOpen(false);
+    const onClickConfirmNameModal = (e) => {
+        if (e.target.value !== '') {
+            // TODO - verify name in session
+            setIsInvalidName(false);
+            setIsNameModalOpen(false);
             history.push('/'+mode);
-            // TODO
+        } else {
+
+        }
+    }
+
+    const onChangeNameModalInput = (e) => {
+        if (e.target.value !== '') {
+            // TODO - verify name in session
+            setIsInvalidName(false);
+        } else {
+            setIsInvalidName(true);
+        }
     }
 
     useEffect(() => {
@@ -50,6 +65,8 @@ function LandingPage() {
                     isOpen={isNameModalOpen}
                     onClickCancel={onClickCancelNameModal}
                     onClickConfirm={onClickConfirmNameModal}
+                    isInvalidName={isInvalidName}
+                    onChangeInput={onChangeNameModalInput}
                 />
                 <Header inverted as="h1">Ovni Aventures</Header>
                 <Header inverted as="h2">Le jeu inspiré par le livre OVNI!</Header>

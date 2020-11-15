@@ -19,6 +19,11 @@ const socket = socketIOClient(ENDPOINT);
 
 export default function LobbyPageMultiplayer() {
 
+    socket.on('update client player join', (data) => {
+        console.log(data);
+        
+    })
+
     const onClickHumanHandler = () => {
         console.log('selected human');
         socket.emit('assign', 'human');
@@ -46,12 +51,9 @@ export default function LobbyPageMultiplayer() {
             <Button onClick={onClickAlienHandler}>Ovni</Button>
             <Button onClick={onClickSpectatorHandler}>Spectateur</Button>
             <Header inverted as="h2">Joueurs</Header>
+            <Header inverted as="h3">Spectateurs</Header>
             <Segment inverted>
             <List divided inverted relaxed>
-                {/* <List.Item>
-                    <List.Content>pasunhumain</List.Content>
-                </List.Item>
-                <List.Item>humaintoujours</List.Item> */}
             </List>
             </Segment>
             <Header inverted as="h3">Ovni</Header>
@@ -60,11 +62,6 @@ export default function LobbyPageMultiplayer() {
             </List>
             </Segment>
             <Header inverted as="h3">Humain</Header>
-            <Segment inverted>
-            <List divided inverted relaxed>
-            </List>
-            </Segment>
-            <Header inverted as="h3">Spectateurs</Header>
             <Segment inverted>
             <List divided inverted relaxed>
             </List>

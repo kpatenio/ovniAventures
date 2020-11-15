@@ -10,6 +10,7 @@ import {
 import {
     useHistory
 } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import socketIOClient from 'socket.io-client';
 import NameModal from './modals/NameModal';
 
@@ -18,15 +19,14 @@ const socket = socketIOClient(ENDPOINT);
 
 function LandingPage() {
     const [isNameModalOpen, setIsNameModalOpen] = useState(false);
-    const [playerName, setPlayerName] = useState('')
+    const [playerName, setPlayerName] = useState();
     const [isInvalidName, setIsInvalidName] = useState(true);
-    const [mode, setMode] = useState('')
+    const [mode, setMode] = useState()
     const history = useHistory();
 
     const onClickSolo = () => {
         setIsNameModalOpen(true);
         setMode('solo');
-        
     }
 
     const onClickMultiplayer = () => {
@@ -41,11 +41,16 @@ function LandingPage() {
     const onClickConfirmNameModal = () => {
         if (!isInvalidName) {
             // TODO - verify name in session
-            console.log('modal clicked!')
             setIsInvalidName(false);
             setIsNameModalOpen(false);
 
-            socket.emit('player join', playerName);
+            const id = uuidv4().toString();
+
+            socket.emit('player join', {
+                player_id: id,
+                player_name: playerName
+            });
+            localStorage.setItem(id, playerName);
 
             history.push('/'+mode);
         }
@@ -60,10 +65,6 @@ function LandingPage() {
             setIsInvalidName(true);
         }
     }
-
-    useEffect(() => {
-        // setIsNameModalOpen(c)
-    }, [])
 
     return (
         <>

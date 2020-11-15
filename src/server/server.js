@@ -15,16 +15,6 @@ const io = socketIO(server);
 
 let tempDB = {
     players: {
-        humans: [
-            
-        ],
-
-        alien: [
-
-        ],
-        spectators: [
-
-        ]
     },
 };
 
@@ -32,9 +22,16 @@ io.on("connection", (socket) => {
   console.log("New client connected");
 
     socket.on("player join", (data) => {
-        tempDB.players.spectators.push(data);
-        console.log(tempDB.players)
-        // socket.emit('update client player join')
+        // TODO - temporary db structure
+        /*
+         * {player_id: {player_name:, player_role}} 
+         */
+        tempDB.players[data.player_id] = {
+            player_name: data.player_name,
+            player_role: "spectator"
+        };
+        // console.log(tempDB)
+        io.emit('update client player join', tempDB.players[data.player_id]);
     })
 
     socket.on("assign", (data) => {

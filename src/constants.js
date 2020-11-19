@@ -3,3 +3,8 @@ export const FONTS = {
     BODY: "Source Code Pro",
     TITLE: "Stalinist One"
 }
+
+export const MODES = {
+    SINGLEPLAYER: "solo",
+    MULTIPLAYER: "multijoueur"
+}

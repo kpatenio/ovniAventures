@@ -8,18 +8,21 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import {
+  Box
+} from '@material-ui/core';
 import LandingPage from './components/LandingPage';
 import Header from './components/Header';
-import GamePageSolo from './components/GamePageSolo';
+import GamePageSolo from './components/singleplayer/GamePageSolo';
 import GamePageMultiPlayer from './components/multiplayer/GamePageMultiplayer';
-import LobbyPageMultiplayer from './components/multiplayer/LobbyPageMultiplayer';
+// import LobbyPageMultiplayer from './components/multiplayer/LobbyPageMultiplayer';
 
 function App() {
 
   return (
     <Router>
       <div className="App">
-        <Header/>
+        {/* <Header/> */}
         <Switch>
           <Route exact path="/">
             <LandingPage/>
@@ -28,7 +31,7 @@ function App() {
             <GamePageSolo/>
           </Route>
           <Route path="/multijoueur">
-            <LobbyPageMultiplayer/>
+            {/* <LobbyPageMultiplayer/> */}
           </Route>
         </Switch>
       </div>

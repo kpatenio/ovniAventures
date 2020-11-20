@@ -19,8 +19,9 @@ import {
     FONTS,
     MODES
 } from '../constants';
-import ovni from '../ovni-transparent.png';
+import alien from '../alien-transparent.png';
 import earth from '../earth.png';
+import ufo from '../ufo.png'
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -47,9 +48,14 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: FONTS.BODY,
         color: "white"
     },
-    image: {
+    imageAlien: {
         height: 200,
         width: 200,
+    },
+    imageUfo: {
+        height: 175,
+        width: 175,
+        marginBottom: 16
     },
     earth: {
         height: 200,
@@ -115,8 +121,9 @@ function LandingPage() {
                                 OVNI Aventures
                             </Typography>
                         </Grid>
-                        <Grid item xs>
-                            <img className={classes.image} src={ovni}/>
+                        <Grid item xs alignItems="baseline">
+                            <img className={classes.imageAlien} src={alien}/>
+                            <img className={classes.imageUfo} src={ufo}/>
                         </Grid>
                     </Grid>
                     <hr className={classes.hr}/>
@@ -128,7 +135,7 @@ function LandingPage() {
                                 Mode en solo
                         </Typography>
                         <Typography variant="body1" className={classes.bodyText} paragraph>
-                            Affrontez les conséquences d'un adversaire CPU! L'ovni prendra une décision au hasard, alors il faut être prêt.e à s'adapter pour survivre.
+                            Affrontez les conséquences d'un adversaire CPU! L'extraterrestre prendra une décision au hasard, alors il faut être prêt.e à s'adapter pour survivre.
                         </Typography>
                         <InputLabel style={{color: "white", fontFamily: FONTS.BODY, marginBottom: 10}}>
                         Saisir votre nom pour commencer:
@@ -147,7 +154,7 @@ function LandingPage() {
                             Assumer le rôle d'un personnage humain et affronter les conséquences de vos propres décisions... ainsi que celles d'autres! Essayez-vous de survivre jusqu'à la fin du jeu en faisant le bon choix pendant votre parcours.
                         </Typography>
                         <ul className={classes.bodyText}>
-                            <li>L'ovni et vous, vous jouerez à tour de rôle, et chaque décision affecte les décisions possibles pour chaque joueur.</li>
+                            <li>L'extraterrestre et vous, vous jouerez à tour de rôle, et chaque décision affecte les décisions possibles pour chaque joueur.</li>
                             <li>Vous commencez avec la santé pleine - un action nuisible la deminue. Si votre santé est toute épuisée, c'est « game over » pour vous!</li>
                             <li>Si vous survivez la partie, vous gagnerez!</li>
                         </ul>

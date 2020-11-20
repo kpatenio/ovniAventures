@@ -19,15 +19,11 @@ import {
     FONTS,
     MODES
 } from '../constants';
-import alien from '../alien-transparent.png';
-import earth from '../earth.png';
-import ufo from '../ufo.png'
 
 const useStyles = makeStyles((theme) => ({
     button: {
         // border: "5px solid white",
         fontFamily: FONTS.BODY,
-        fontWeight: "bold",
         marginBotton: 10,
         marginTop: 10
     },
@@ -63,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
     },
     textfield: {
         backgroundColor: "white",
-        // backgroundColor: "#1e1c21",
         color: "black",
         fontFamily: FONTS.BODY,
         height: 40,
@@ -71,9 +66,6 @@ const useStyles = makeStyles((theme) => ({
     },
     box: {
         padding: 30,
-        // width: "50%"
-        // backgroundColor: "#352945",
-        // border: "2px solid black"
     }
 }))
 
@@ -114,21 +106,6 @@ function LandingPage() {
     return (
         <>
             <Container>
-                <Box component="header">
-                    <Grid direction="row" container justify="space-between" className={classes.h1}>
-                        <Grid item xs>
-                            <Typography variant="h1" className={classes.h1}>
-                                OVNI Aventures
-                            </Typography>
-                        </Grid>
-                        <Grid item xs alignItems="baseline">
-                            <img className={classes.imageAlien} src={alien}/>
-                            <img className={classes.imageUfo} src={ufo}/>
-                        </Grid>
-                    </Grid>
-                    <hr className={classes.hr}/>
-                </Box>
-                
                 <Box component="main">
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>
@@ -168,12 +145,6 @@ function LandingPage() {
                             <Box component="span" fontStyle="italic">Ovni aventures</Box> est inspiré par le livre <Box component="span" fontStyle="italic">OVNI</Box> des auteurs Fabrice Parme et Lewis Trondheim. Réalisé par <Link href="https://github.com/kpatenio/ovniAventures" underline="always" target="_blank" rel="noopener"> Katherine Patenio</Link>, le jeu est un recréation du livre original en format numérique et de la perspective d'un personnage humain.    
                         </Typography>
                     </Box>
-
-                    <Grid container justify="center">
-                        <Grid item>
-                            <img className={classes.earth} src={earth}/>
-                        </Grid>
-                    </Grid>
                 </Box>
             </Container>
         </>

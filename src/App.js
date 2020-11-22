@@ -16,15 +16,16 @@ import Header from './components/Header';
 import GamePageSolo from './components/singleplayer/GamePageSolo';
 import GamePageMultiPlayer from './components/multiplayer/GamePageMultiplayer';
 // import LobbyPageMultiplayer from './components/multiplayer/LobbyPageMultiplayer';
+import Footer from './components/Footer';
 
 function App() {
 
   return (
     <Router>
       <div className="App">
-        {/* <Header/> */}
         <Switch>
           <Route exact path="/">
+            <Header/>
             <LandingPage/>
           </Route>
           <Route path="/solo">
@@ -34,6 +35,7 @@ function App() {
             {/* <LobbyPageMultiplayer/> */}
           </Route>
         </Switch>
+        <Footer/>
       </div>
     </Router>
   );

@@ -109,22 +109,23 @@ function LandingPage() {
     }
 
     const onChangeNameModalInput = (e) => {
-        setPlayerName(e.target.value)
+        setPlayerName(e.target.value);
     }
 
     useEffect(() => {
         if (playerName === undefined || !playerName.trim()) {
-            setIsInvalidName(true)
+            setIsInvalidName(true);
         } else {
-            setIsInvalidName(false)
+            setIsInvalidName(false);
         }
     }, [playerName])
 
     useEffect(() => {
         if (mode === MODES.SINGLEPLAYER) {
-            localStorage.setItem(KEYS.playerName, playerName)
-            localStorage.setItem(KEYS.avatarId, playerAvatarId)
-            history.push('/' + MODES.SINGLEPLAYER)
+            localStorage.setItem(KEYS.playerName, playerName);
+            localStorage.setItem(KEYS.playerAvatarId, playerAvatarId);
+            localStorage.setItem(KEYS.playerHealth, 100);
+            history.push('/' + MODES.SINGLEPLAYER);
         }
     }, [mode])
 

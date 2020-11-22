@@ -18,6 +18,7 @@ export const AVATARS = {
 
 // For local storage at the moment
 export const KEYS = {
-    avatarId: "ovniAventuresAvatarId",
-    playerName: "ovniAventuresPlayerName"
+    playerAvatarId: "ovniAventuresPlayerAvatarId",
+    playerName: "ovniAventuresPlayerName",
+    playerHealth: "ovniAventuresPlayerHealth"
 }

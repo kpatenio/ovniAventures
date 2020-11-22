@@ -68,6 +68,9 @@ const useStyles = makeStyles((theme) => ({
     },
     box: {
         padding: 30,
+    },
+    rules: {
+        margin: 10
     }
 }))
 
@@ -158,9 +161,9 @@ function LandingPage() {
                             Assumer le rôle d'un personnage humain et affronter les conséquences de vos propres décisions... ainsi que celles d'autres! Essayez-vous de survivre jusqu'à la fin du jeu en faisant le bon choix pendant votre parcours.
                         </Typography>
                         <ul className={classes.bodyText}>
-                            <li>L'extraterrestre et vous, vous jouerez à tour de rôle, et chaque décision affecte les décisions possibles pour chaque joueur.</li>
-                            <li>Vous commencez avec la santé pleine - un action nuisible la deminue. Si votre santé est toute épuisée, c'est « game over » pour vous!</li>
-                            <li>Si vous survivez la partie, vous gagnerez!</li>
+                            <li className={classes.rules}>L'extraterrestre et vous, vous jouerez à tour de rôle, et chaque décision affecte les décisions possibles pour chaque joueur.</li>
+                            <li className={classes.rules}>Vous commencez avec la santé pleine - un action nuisible la deminue. Si votre santé est toute épuisée, c'est « game over » pour vous!</li>
+                            <li className={classes.rules}> Si vous survivez la partie, vous gagnerez!</li>
                         </ul>
                     </Box>
 

@@ -10,6 +10,8 @@ import {
     ListItem,
     ListItemText,
     ListSubheader,
+    Menu,
+    MenuItem,
     Paper,
     Typography
 } from '@material-ui/core';
@@ -82,6 +84,10 @@ const useStyles = makeStyles((theme) => ({
         height: 100,
         width: 100,
         margin: 0
+    },
+    settingsMenu: {
+        fontFamily: FONTS.BODY,
+        backgroundColor: 'red'
     }
 }))
 
@@ -93,7 +99,18 @@ const humans = [
 ]
 
 export default function GamePageSolo() {
+    const [anchorEl, setAnchorEl] = useState(null)
+    const [isSettingsMenuOpen, setIsSettingMenuOpen] = useState(false);
     const classes = useStyles();
+
+    const onClickSettingsMenuButton = (event) => {
+        setAnchorEl(event.currentTarget);
+        // setIsSettingMenuOpen(!isSettingsMenuOpen);
+    }
+
+    const onCloseSettingsMenu = () => {
+        setAnchorEl(null);
+    }
 
     return (
         <>
@@ -148,7 +165,25 @@ export default function GamePageSolo() {
                             </ListItem>
                             <Divider className={classes.divider} />
                             <List>
-                            <ListItem button className={classes.listitemtext}>Paramètres</ListItem>
+                                <ListItem button onClick={onClickSettingsMenuButton} className={classes.listitemtext}>Paramètres</ListItem>
+                                <Menu
+                                    anchorEl={anchorEl}
+                                    open={Boolean(anchorEl)}
+                                    onClose={onCloseSettingsMenu}
+                                    PaperProps={{style: {
+                                        color: 'white',
+                                        backgroundColor: '#3c3742'
+                                    }}}
+                                    MenuListProps={{
+                                        style: {
+                                            fontFamily: FONTS.BODY,
+                                        }
+                                    }}
+                                >
+                                    <MenuItem>À propos</MenuItem>
+                                    <MenuItem>Passer à l'anglais</MenuItem>
+                                    <MenuItem>Quitter</MenuItem>
+                                </Menu>
                             </List>
                         </List>
                     </Grid>

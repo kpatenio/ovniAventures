@@ -16,8 +16,13 @@ import {
 import {
     makeStyles
 } from '@material-ui/core/styles';
+import human1 from '../../images/humans/human1.png';
+import human2 from '../../images/humans/human2.png';
+import human3 from '../../images/humans/human3.png';
+import human4 from '../../images/humans/human4.png';
 import {
-    FONTS
+    FONTS,
+    KEYS
 } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
@@ -72,11 +77,24 @@ const useStyles = makeStyles((theme) => ({
     },
     titleAndPanels: {
         height: "100%"
+    },
+    image: {
+        height: 100,
+        width: 100,
+        margin: 0
     }
 }))
 
+const humans = [
+    human1,
+    human2,
+    human3,
+    human4
+]
+
 export default function GamePageSolo() {
     const classes = useStyles();
+
     return (
         <>
             <Container className={classes.grid}>
@@ -119,9 +137,13 @@ export default function GamePageSolo() {
                     {/*List*/}
                     <Grid item xs>
                         <List className={classes.list} subheader={<ListSubheader component="h2" className={classes.subheader}>Personnage</ListSubheader>}>
+                            
                             <ListItem className={classes.listitemtext}>Nom:</ListItem>
                             <ListItem className={classes.listitemtext}>Santé:</ListItem>
                             <ListItem className={classes.listitemtext}>Inventaire:</ListItem>
+                            <ListItem>
+                                <img className={classes.image} src={humans[localStorage.getItem(KEYS.avatarId)]}/>
+                            </ListItem>
                             <Divider className={classes.divider} />
                             <List>
                             <ListItem button className={classes.listitemtext}>Paramètres</ListItem>

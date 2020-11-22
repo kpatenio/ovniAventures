@@ -6,7 +6,6 @@ import {
     Box,
     Button,
     Container,
-    Grid,
     InputLabel,
     Link,
     TextField,
@@ -16,9 +15,12 @@ import {
     useHistory
 } from 'react-router-dom';
 import {
+    AVATARS,
     FONTS,
-    MODES
+    MODES,
+    KEYS
 } from '../constants';
+import CharacterSelect from './CharacterSelect'
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -69,6 +71,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
+let listOfAvatars = [];
+for (let key in AVATARS) {
+    listOfAvatars.push(key)
+}
+
 function LandingPage() {
 
     const classes = useStyles();
@@ -76,6 +83,23 @@ function LandingPage() {
     const [playerName, setPlayerName] = useState()
     const [isInvalidName, setIsInvalidName] = useState(true);
     const [mode, setMode] = useState('')
+    const [playerAvatarId, setPlayerAvatarId] = useState(0);
+
+    const onClickLeft = () => {
+        if (playerAvatarId === 0) {
+            setPlayerAvatarId(3);
+        } else {
+            setPlayerAvatarId(playerAvatarId - 1);
+        }
+    }
+
+    const onClickRight = () => {
+        if (playerAvatarId === 3) {
+            setPlayerAvatarId(0);
+        } else {
+            setPlayerAvatarId(playerAvatarId + 1);
+        }
+    }
     const history = useHistory();
 
     const onClickSolo = (e) => {
@@ -97,8 +121,9 @@ function LandingPage() {
     }, [playerName])
 
     useEffect(() => {
-        // TODO - constant
         if (mode === MODES.SINGLEPLAYER) {
+            localStorage.setItem(KEYS.playerName, playerName)
+            localStorage.setItem(KEYS.avatarId, playerAvatarId)
             history.push('/' + MODES.SINGLEPLAYER)
         }
     }, [mode])
@@ -121,6 +146,7 @@ function LandingPage() {
                         <Button className={classes.button} onClick={onClickSolo} disabled={isInvalidName} variant="contained" color="primary" size="large" fullWidth>
                             Nouvelle partie
                         </Button>
+                        <CharacterSelect onClickLeft={onClickLeft} onClickRight={onClickRight} playerAvatarId={playerAvatarId}/>
                     </Box>
 
                     <Box className={classes.box}>

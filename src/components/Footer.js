@@ -6,7 +6,7 @@ import {
 import {
     makeStyles
 } from '@material-ui/core/styles';
-import earth from '../earth.png';
+import earth from '../images/earth.png';
 
 const useStyles = makeStyles(() => ({
     earth: {

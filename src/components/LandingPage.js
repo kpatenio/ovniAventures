@@ -6,7 +6,6 @@ import {
     Box,
     Button,
     Container,
-    Grid,
     InputLabel,
     Link,
     TextField,
@@ -16,9 +15,12 @@ import {
     useHistory
 } from 'react-router-dom';
 import {
+    AVATARS,
     FONTS,
-    MODES
+    MODES,
+    KEYS
 } from '../constants';
+import CharacterSelect from './CharacterSelect'
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -66,8 +68,16 @@ const useStyles = makeStyles((theme) => ({
     },
     box: {
         padding: 30,
+    },
+    rules: {
+        margin: 10
     }
 }))
+
+let listOfAvatars = [];
+for (let key in AVATARS) {
+    listOfAvatars.push(key)
+}
 
 function LandingPage() {
 
@@ -76,6 +86,23 @@ function LandingPage() {
     const [playerName, setPlayerName] = useState()
     const [isInvalidName, setIsInvalidName] = useState(true);
     const [mode, setMode] = useState('')
+    const [playerAvatarId, setPlayerAvatarId] = useState(0);
+
+    const onClickLeft = () => {
+        if (playerAvatarId === 0) {
+            setPlayerAvatarId(3);
+        } else {
+            setPlayerAvatarId(playerAvatarId - 1);
+        }
+    }
+
+    const onClickRight = () => {
+        if (playerAvatarId === 3) {
+            setPlayerAvatarId(0);
+        } else {
+            setPlayerAvatarId(playerAvatarId + 1);
+        }
+    }
     const history = useHistory();
 
     const onClickSolo = (e) => {
@@ -85,21 +112,23 @@ function LandingPage() {
     }
 
     const onChangeNameModalInput = (e) => {
-        setPlayerName(e.target.value)
+        setPlayerName(e.target.value);
     }
 
     useEffect(() => {
         if (playerName === undefined || !playerName.trim()) {
-            setIsInvalidName(true)
+            setIsInvalidName(true);
         } else {
-            setIsInvalidName(false)
+            setIsInvalidName(false);
         }
     }, [playerName])
 
     useEffect(() => {
-        // TODO - constant
         if (mode === MODES.SINGLEPLAYER) {
-            history.push('/' + MODES.SINGLEPLAYER)
+            localStorage.setItem(KEYS.playerName, playerName);
+            localStorage.setItem(KEYS.playerAvatarId, playerAvatarId);
+            localStorage.setItem(KEYS.playerHealth, 100);
+            history.push('/' + MODES.SINGLEPLAYER);
         }
     }, [mode])
 
@@ -121,6 +150,7 @@ function LandingPage() {
                         <Button className={classes.button} onClick={onClickSolo} disabled={isInvalidName} variant="contained" color="primary" size="large" fullWidth>
                             Nouvelle partie
                         </Button>
+                        <CharacterSelect onClickLeft={onClickLeft} onClickRight={onClickRight} playerAvatarId={playerAvatarId}/>
                     </Box>
 
                     <Box className={classes.box}>
@@ -131,9 +161,9 @@ function LandingPage() {
                             Assumer le rôle d'un personnage humain et affronter les conséquences de vos propres décisions... ainsi que celles d'autres! Essayez-vous de survivre jusqu'à la fin du jeu en faisant le bon choix pendant votre parcours.
                         </Typography>
                         <ul className={classes.bodyText}>
-                            <li>L'extraterrestre et vous, vous jouerez à tour de rôle, et chaque décision affecte les décisions possibles pour chaque joueur.</li>
-                            <li>Vous commencez avec la santé pleine - un action nuisible la deminue. Si votre santé est toute épuisée, c'est « game over » pour vous!</li>
-                            <li>Si vous survivez la partie, vous gagnerez!</li>
+                            <li className={classes.rules}>L'extraterrestre et vous, vous jouerez à tour de rôle, et chaque décision affecte les décisions possibles pour chaque joueur.</li>
+                            <li className={classes.rules}>Vous commencez avec la santé pleine - un action nuisible la deminue. Si votre santé est toute épuisée, c'est « game over » pour vous!</li>
+                            <li className={classes.rules}> Si vous survivez la partie, vous gagnerez!</li>
                         </ul>
                     </Box>
 

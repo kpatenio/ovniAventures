@@ -15,8 +15,8 @@ import {
 import {
     FONTS,
 } from '../constants';
-import alien from '../alien-transparent.png';
-import ufo from '../ufo.png'
+import alien from '../images/alien-transparent.png';
+import ufo from '../images/ufo.png'
 
 const useStyles = makeStyles(() => ({
     h1: {

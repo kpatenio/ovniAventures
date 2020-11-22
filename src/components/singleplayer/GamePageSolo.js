@@ -10,14 +10,21 @@ import {
     ListItem,
     ListItemText,
     ListSubheader,
+    Menu,
+    MenuItem,
     Paper,
     Typography
 } from '@material-ui/core';
 import {
     makeStyles
 } from '@material-ui/core/styles';
+import human1 from '../../images/humans/human1.png';
+import human2 from '../../images/humans/human2.png';
+import human3 from '../../images/humans/human3.png';
+import human4 from '../../images/humans/human4.png';
 import {
-    FONTS
+    FONTS,
+    KEYS
 } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
@@ -72,11 +79,39 @@ const useStyles = makeStyles((theme) => ({
     },
     titleAndPanels: {
         height: "100%"
+    },
+    image: {
+        height: 100,
+        width: 100,
+        margin: 0
+    },
+    settingsMenu: {
+        fontFamily: FONTS.BODY,
+        backgroundColor: 'red'
     }
 }))
 
+const humans = [
+    human1,
+    human2,
+    human3,
+    human4
+]
+
 export default function GamePageSolo() {
+    const [anchorEl, setAnchorEl] = useState(null)
+    const [isSettingsMenuOpen, setIsSettingMenuOpen] = useState(false);
     const classes = useStyles();
+
+    const onClickSettingsMenuButton = (event) => {
+        setAnchorEl(event.currentTarget);
+        // setIsSettingMenuOpen(!isSettingsMenuOpen);
+    }
+
+    const onCloseSettingsMenu = () => {
+        setAnchorEl(null);
+    }
+
     return (
         <>
             <Container className={classes.grid}>
@@ -119,12 +154,36 @@ export default function GamePageSolo() {
                     {/*List*/}
                     <Grid item xs>
                         <List className={classes.list} subheader={<ListSubheader component="h2" className={classes.subheader}>Personnage</ListSubheader>}>
-                            <ListItem className={classes.listitemtext}>Nom:</ListItem>
-                            <ListItem className={classes.listitemtext}>Santé:</ListItem>
-                            <ListItem className={classes.listitemtext}>Inventaire:</ListItem>
+                            
+                            <ListItem className={classes.listitemtext}>Nom: {localStorage.getItem(KEYS.playerName)}</ListItem>
+                            <ListItem className={classes.listitemtext}>Santé: {localStorage.getItem(KEYS.playerHealth)}%</ListItem>
+                            <ListItem>
+                                <img
+                                    className={classes.image}
+                                    src={humans[localStorage.getItem(KEYS.playerAvatarId)]}
+                                />
+                            </ListItem>
                             <Divider className={classes.divider} />
                             <List>
-                            <ListItem button className={classes.listitemtext}>Paramètres</ListItem>
+                                <ListItem button onClick={onClickSettingsMenuButton} className={classes.listitemtext}>Paramètres</ListItem>
+                                <Menu
+                                    anchorEl={anchorEl}
+                                    open={Boolean(anchorEl)}
+                                    onClose={onCloseSettingsMenu}
+                                    PaperProps={{style: {
+                                        color: 'white',
+                                        backgroundColor: '#3c3742'
+                                    }}}
+                                    MenuListProps={{
+                                        style: {
+                                            fontFamily: FONTS.BODY,
+                                        }
+                                    }}
+                                >
+                                    <MenuItem>À propos</MenuItem>
+                                    <MenuItem>Passer à l'anglais</MenuItem>
+                                    <MenuItem>Quitter</MenuItem>
+                                </Menu>
                             </List>
                         </List>
                     </Grid>

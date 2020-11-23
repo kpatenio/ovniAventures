@@ -129,7 +129,6 @@ function LandingPage() {
             localStorage.setItem(KEYS.playerName, playerName);
             localStorage.setItem(KEYS.playerAvatarId, playerAvatarId);
             localStorage.setItem(KEYS.playerHealth, 100);
-            localStorage.setItem(KEYS.playerLocation, 'quelque part à la ville de Rome');
             history.push('/' + MODES.SINGLEPLAYER);
         }
     }, [mode])

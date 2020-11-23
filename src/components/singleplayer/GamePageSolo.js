@@ -26,7 +26,7 @@ import {
     FONTS,
     KEYS
 } from '../../constants';
-import gameEvents from '../../events/singleplayer/gameEvents';
+import gameEvents, {initializeGame, getEventNode} from '../../events/singleplayer/gameEvents';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -114,7 +114,7 @@ const humans = [
 
 export default function GamePageSolo() {
     const [anchorEl, setAnchorEl] = useState(null)
-    const [isSettingsMenuOpen, setIsSettingMenuOpen] = useState(false);
+    const [currentScene, setCurrentScene] = useState(null)
     const classes = useStyles();
 
     const onClickSettingsMenuButton = (event) => {
@@ -125,6 +125,20 @@ export default function GamePageSolo() {
     const onCloseSettingsMenu = () => {
         setAnchorEl(null);
     }
+
+    const updateScene = (value, buttonIndex) => {
+        // console.log(value, buttonIndex);
+        setCurrentScene(getEventNode(value, buttonIndex));
+    }
+
+    // componentdidstart lifecycle
+    useEffect (() => {
+        initializeGame();
+    }, [])
+
+    useEffect(() => {
+        console.log(currentScene);
+    }, [currentScene])
 
     return (
         <>
@@ -140,30 +154,31 @@ export default function GamePageSolo() {
                     {/*Title and panels*/}
                     <Grid item direction="column" xs={8} justify="space-between" className={classes.titleAndPanels}>
                         <Grid item className={classes.storyPanel}>
-                            <Typography component="p" gutteclassrBottom paragraph className={classes.storyPanelTextLocation}>Emplacement: {localStorage.getItem(KEYS.playerLocation)}</Typography>
+                            <Typography component="p" gutteclassrBottom paragraph className={classes.storyPanelTextLocation}>Emplacement: {gameEvents.rome.scene0.location}</Typography>
                             <Typography component="p" className={classes.storyPanelText}>
-                                {gameEvents.rome.introduction.description}
+                                {gameEvents.rome.scene0.description}
                             </Typography>
                             <Typography component="p" className={classes.storyPanelTextPrompt}>
-                                {gameEvents.rome.introduction.prompt}
+                                {gameEvents.rome.scene0.prompt}
                             </Typography>
                         </Grid>
 
                         {/*Panels*/}
+                        {/*TODO - new component for buttons and panels*/}
                         <Grid item direction="column">
                             <Grid item>
                                 <Box className={classes.choicePanel}>
-                                    <Button variant="contained" className={classes.button} fullWidth>Du pain, comme d'habitude.</Button>
+                                    <Button onClick={() => updateScene(currentScene, 0)} variant="contained" className={classes.button} fullWidth>{gameEvents.rome.scene0.choices[0]}</Button>
                                 </Box>
                             </Grid>
                             <Grid item>
                                 <Box className={classes.choicePanel}>
-                                    <Button variant="contained" className={classes.button} fullWidth>De la viande.</Button>
+                                    <Button onClick={() => updateScene(currentScene, 1)} variant="contained" className={classes.button} fullWidth>{gameEvents.rome.scene0.choices[1]}</Button>
                                 </Box>
                             </Grid>
                             <Grid item>
                                 <Box className={classes.choicePanel}>
-                                    <Button variant="contained" className={classes.button} fullWidth>Pas de nourriture! Plutôt... du vin!</Button>
+                                    <Button onClick={() => updateScene(currentScene, 2)} variant="contained" className={classes.button} fullWidth>{gameEvents.rome.scene0.choices[2]}</Button>
                                 </Box>
                             </Grid>
                         </Grid>

@@ -21,5 +21,4 @@ export const KEYS = {
     playerAvatarId: "ovniAventuresPlayerAvatarId",
     playerName: "ovniAventuresPlayerName",
     playerHealth: "ovniAventuresPlayerHealth",
-    playerLocation: "ovniAventuresPlayerLocation"
 }

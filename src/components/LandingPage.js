@@ -44,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
     },
     bodyText: {
         fontFamily: FONTS.BODY,
-        color: "white"
+        color: "white",
+        fontSize: 16
     },
     imageAlien: {
         height: 200,
@@ -128,6 +129,7 @@ function LandingPage() {
             localStorage.setItem(KEYS.playerName, playerName);
             localStorage.setItem(KEYS.playerAvatarId, playerAvatarId);
             localStorage.setItem(KEYS.playerHealth, 100);
+            localStorage.setItem(KEYS.playerLocation, 'quelque part à la ville de Rome');
             history.push('/' + MODES.SINGLEPLAYER);
         }
     }, [mode])
@@ -143,7 +145,7 @@ function LandingPage() {
                         <Typography variant="body1" className={classes.bodyText} paragraph>
                             Affrontez les conséquences d'un adversaire CPU! L'extraterrestre prendra une décision au hasard, alors il faut être prêt.e à s'adapter pour survivre.
                         </Typography>
-                        <InputLabel style={{color: "white", fontFamily: FONTS.BODY, marginBottom: 10}}>
+                        <InputLabel style={{color: "white", fontFamily: FONTS.BODY, marginBottom: 10, fontSize: 16}}>
                         Saisir votre nom pour commencer:
                         </InputLabel>
                         <TextField onChange={onChangeNameModalInput} variant="standard" fullWidth InputProps={{className: classes.textfield}}/>

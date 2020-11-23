@@ -26,6 +26,7 @@ import {
     FONTS,
     KEYS
 } from '../../constants';
+import gameEvents from '../../events/singleplayer/gameEvents';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -75,7 +76,20 @@ const useStyles = makeStyles((theme) => ({
     },
     storyPanelText: {
         fontFamily: FONTS.BODY,
-
+        margin: 15,
+        lineHeight: 1.75,
+        fontSize: 18
+    },
+    storyPanelTextLocation: {
+        fontFamily: FONTS.BODY,
+        fontSize: 18
+    },
+    storyPanelTextPrompt: {
+        fontFamily: FONTS.BODY,
+        fontSize: 18,
+        fontWeight: "bold",
+        margin: 15,
+        lineHeight: 1.75
     },
     titleAndPanels: {
         height: "100%"
@@ -126,8 +140,12 @@ export default function GamePageSolo() {
                     {/*Title and panels*/}
                     <Grid item direction="column" xs={8} justify="space-between" className={classes.titleAndPanels}>
                         <Grid item className={classes.storyPanel}>
+                            <Typography component="p" gutteclassrBottom paragraph className={classes.storyPanelTextLocation}>Emplacement: {localStorage.getItem(KEYS.playerLocation)}</Typography>
                             <Typography component="p" className={classes.storyPanelText}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh sed pulvinar proin gravida hendrerit lectus a. Pharetra vel turpis nunc eget lorem dolor sed. Quis auctor elit sed vulputate mi sit amet mauris commodo. Ultricies mi quis hendrerit dolor magna eget est lorem ipsum. Quisque id diam vel quam. Nisi scelerisque eu ultrices vitae auctor. Neque vitae tempus quam pellentesque nec. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus. Sagittis aliquam malesuada bibendum arcu.
+                                {gameEvents.rome.introduction.description}
+                            </Typography>
+                            <Typography component="p" className={classes.storyPanelTextPrompt}>
+                                {gameEvents.rome.introduction.prompt}
                             </Typography>
                         </Grid>
 
@@ -135,17 +153,17 @@ export default function GamePageSolo() {
                         <Grid item direction="column">
                             <Grid item>
                                 <Box className={classes.choicePanel}>
-                                    <Button variant="contained" className={classes.button} fullWidth>Choice 1</Button>
+                                    <Button variant="contained" className={classes.button} fullWidth>Du pain, comme d'habitude.</Button>
                                 </Box>
                             </Grid>
                             <Grid item>
                                 <Box className={classes.choicePanel}>
-                                    <Button variant="contained" className={classes.button} fullWidth>Choice 2</Button>
+                                    <Button variant="contained" className={classes.button} fullWidth>De la viande.</Button>
                                 </Box>
                             </Grid>
                             <Grid item>
                                 <Box className={classes.choicePanel}>
-                                    <Button variant="contained" className={classes.button} fullWidth>Choice 3</Button>
+                                    <Button variant="contained" className={classes.button} fullWidth>Pas de nourriture! Plutôt... du vin!</Button>
                                 </Box>
                             </Grid>
                         </Grid>

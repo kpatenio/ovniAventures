@@ -20,5 +20,6 @@ export const AVATARS = {
 export const KEYS = {
     playerAvatarId: "ovniAventuresPlayerAvatarId",
     playerName: "ovniAventuresPlayerName",
-    playerHealth: "ovniAventuresPlayerHealth"
+    playerHealth: "ovniAventuresPlayerHealth",
+    playerLocation: "ovniAventuresPlayerLocation"
 }

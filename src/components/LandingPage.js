@@ -139,10 +139,10 @@ function LandingPage() {
                 <Box component="main">
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>
-                                Mode en solo
+                                Jouez!
                         </Typography>
                         <Typography variant="body1" className={classes.bodyText} paragraph>
-                            Affrontez les conséquences d'un adversaire CPU! L'extraterrestre prendra une décision au hasard, alors il faut être prêt.e à s'adapter pour survivre.
+                            Un extraterrestre existe et vous voulez le trouver. Mais pouvez-vous survivre pour accomplir votre tâche? Il faut faire le bon choix pendant votre aventure. Sinon, c'est fini pour vous!
                         </Typography>
                         <InputLabel style={{color: "white", fontFamily: FONTS.BODY, marginBottom: 10, fontSize: 16}}>
                         Saisir votre nom pour commencer:
@@ -154,6 +154,7 @@ function LandingPage() {
                         <CharacterSelect onClickLeft={onClickLeft} onClickRight={onClickRight} playerAvatarId={playerAvatarId}/>
                     </Box>
 
+{/*
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>
                             Les règles
@@ -163,17 +164,19 @@ function LandingPage() {
                         </Typography>
                         <ul className={classes.bodyText}>
                             <li className={classes.rules}>L'extraterrestre et vous, vous jouerez à tour de rôle, et chaque décision affecte les décisions possibles pour chaque joueur.</li>
-                            <li className={classes.rules}>Vous commencez avec la santé pleine - un action nuisible la deminue. Si votre santé est toute épuisée, c'est « game over » pour vous!</li>
+                            <li className={classes.rules}>Vous commencez avec la santé pleine - une action nuisible la deminue. Si votre santé est toute épuisée, c'est « game over » pour vous!</li>
                             <li className={classes.rules}> Si vous survivez la partie, vous gagnerez!</li>
                         </ul>
                     </Box>
+*/}
+
 
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>
                             À propos
                         </Typography>
                         <Typography variant="body1" className={classes.bodyText}>
-                            <Box component="span" fontStyle="italic">Ovni aventures</Box> est inspiré par le livre <Box component="span" fontStyle="italic">OVNI</Box> des auteurs Fabrice Parme et Lewis Trondheim. Réalisé par <Link href="https://github.com/kpatenio/ovniAventures" underline="always" target="_blank" rel="noopener"> Katherine Patenio</Link>, le jeu est un recréation du livre original en format numérique et de la perspective d'un personnage humain.    
+                            <Box component="span" fontStyle="italic">Ovni aventures</Box> est inspiré par le livre <Box component="span" fontStyle="italic">OVNI</Box> des auteurs Fabrice Parme et Lewis Trondheim. Réalisé par <Link href="https://github.com/kpatenio/ovniAventures" underline="always" target="_blank" rel="noopener"> Katherine Patenio</Link>, le jeu est une recréation du livre original en format numérique et de la perspective d'un personnage humain.    
                         </Typography>
                     </Box>
                 </Box>

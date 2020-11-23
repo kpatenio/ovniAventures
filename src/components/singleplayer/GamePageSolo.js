@@ -27,7 +27,10 @@ import {
     FONTS,
     KEYS
 } from '../../constants';
-import gameEvents, {initializeGame, getEventNode} from '../../events/singleplayer/gameEvents';
+import {
+    initializeGame,
+    getEventNode
+} from '../../events/singleplayer/gameEventScripts';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -129,12 +132,13 @@ export default function GamePageSolo() {
     }
 
     const updateScene = (currentScene, buttonIndex) => {
-        setCurrentScene(getEventNode(currentScene.value, buttonIndex));
+        setCurrentScene(getEventNode(currentScene, buttonIndex));
     }
 
     // componentdidstart lifecycle
     useEffect (() => {
         // setCurrentScene(initializeGame())
+        // console.log(currentScene)
     }, [])
 
     useEffect(() => {
@@ -147,7 +151,7 @@ export default function GamePageSolo() {
                 
                 <Grid>
                     <Typography component="h1" className={classes.title}>
-                            Mode en solo
+                            Ovni aventures
                     </Typography>
                 </Grid>
 
@@ -169,19 +173,25 @@ export default function GamePageSolo() {
                         {/*TODO - new component for buttons and panels*/}
                         <Grid item direction="column">
                             <Grid item>
-                                <Box className={classes.choicePanel}>
-                                    <Button onClick={() => updateScene(currentScene, 0)} variant="contained" className={classes.button} fullWidth>{gameEvents.rome.scene0.choices[0]}</Button>
-                                </Box>
+                                {currentScene.children[0] ? (
+                                    <Box className={classes.choicePanel}>
+                                        <Button onClick={() => updateScene(currentScene, 0)} variant="contained" className={classes.button} fullWidth>{currentScene.children[0].value}</Button>
+                                    </Box>
+                                ) : null}
                             </Grid>
                             <Grid item>
-                                <Box className={classes.choicePanel}>
-                                    <Button onClick={() => updateScene(currentScene, 1)} variant="contained" className={classes.button} fullWidth>{gameEvents.rome.scene0.choices[1]}</Button>
-                                </Box>
+                                {currentScene.children[1] ? (
+                                    <Box className={classes.choicePanel}>
+                                        <Button onClick={() => updateScene(currentScene, 1)} variant="contained" className={classes.button} fullWidth>{currentScene.children[1].value}</Button>
+                                    </Box>
+                                    ) : null}
                             </Grid>
                             <Grid item>
-                                <Box className={classes.choicePanel}>
-                                    <Button onClick={() => updateScene(currentScene, 2)} variant="contained" className={classes.button} fullWidth>{gameEvents.rome.scene0.choices[2]}</Button>
-                                </Box>
+                            {currentScene.children[2] ? (
+                                    <Box className={classes.choicePanel}>
+                                        <Button onClick={() => updateScene(currentScene, 2)} variant="contained" className={classes.button} fullWidth>{currentScene.children[2].value}</Button>
+                                    </Box>
+                                ) : null}
                             </Grid>
                         </Grid>
                     </Grid>
@@ -215,6 +225,7 @@ export default function GamePageSolo() {
                                         }
                                     }}
                                 >
+                                    {/*TODO - add a reset setting?*/}
                                     <MenuItem>À propos</MenuItem>
                                     <MenuItem>Passer à l'anglais</MenuItem>
                                     <MenuItem>Quitter</MenuItem>

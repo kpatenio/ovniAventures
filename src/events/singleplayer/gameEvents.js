@@ -56,6 +56,8 @@ class GameEventNode {
 // Test code for creating game tree
 let newGameRome;
 export const initializeGame = () => {
+    // TODO - possibly make a new file for script making rome setting game
+    // TODO - possible make initialization more dynamic rather than hardcoded (ex. objects? -> treenodes)
     newGameRome = new GameEventNode(
         null,
         <>
@@ -69,7 +71,7 @@ export const initializeGame = () => {
     newGameRome.pushChild(0, new GameEventNode(
         "Du pain, comme d'habitude.",
         <>
-            Test description!
+            Un bon choix! 
         </>,
         <>
             Test prompt!
@@ -96,15 +98,29 @@ export const initializeGame = () => {
         </>,
         "Test location vin!"
     ));
-    console.log(newGameRome)
+    
+    return newGameRome;
 }
 
 export const getEventNode = (value, choiceIndex) => {
-    if (newGameRome.value === null && choiceIndex != null) {
-        // console.log(newGameRome.children[choiceIndex])
+    if (choiceIndex != null) {
+        // findEventNode(value)
         return newGameRome.children[choiceIndex]
     }
 }
+
+// find node via pre-order traversal
+// const findEventNode = (value) => {
+//     if (value !== null) {
+//         newGameRome.children.forEach(element => {
+//             console.log(`searching... current value is ${value} while looking at ${element.value}`)
+//             if (value === element.value) {
+//                 console.log('found it!')
+//                 return;
+//             }
+//         });   
+//     }
+// }
 
 const gameEvents = {
  "rome": {

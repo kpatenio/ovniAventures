@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
     Box,
     Button,
+    CircularProgress,
     Container,
     Drawer,
     Divider,
@@ -114,7 +115,8 @@ const humans = [
 
 export default function GamePageSolo() {
     const [anchorEl, setAnchorEl] = useState(null)
-    const [currentScene, setCurrentScene] = useState(null)
+    // TODO - set up in such a way where if we need to wait for initial screen to render, show a loading spinner
+    const [currentScene, setCurrentScene] = useState(initializeGame())
     const classes = useStyles();
 
     const onClickSettingsMenuButton = (event) => {
@@ -126,14 +128,13 @@ export default function GamePageSolo() {
         setAnchorEl(null);
     }
 
-    const updateScene = (value, buttonIndex) => {
-        // console.log(value, buttonIndex);
-        setCurrentScene(getEventNode(value, buttonIndex));
+    const updateScene = (currentScene, buttonIndex) => {
+        setCurrentScene(getEventNode(currentScene.value, buttonIndex));
     }
 
     // componentdidstart lifecycle
     useEffect (() => {
-        initializeGame();
+        // setCurrentScene(initializeGame())
     }, [])
 
     useEffect(() => {
@@ -143,6 +144,7 @@ export default function GamePageSolo() {
     return (
         <>
             <Container className={classes.grid}>
+                
                 <Grid>
                     <Typography component="h1" className={classes.title}>
                             Mode en solo
@@ -154,12 +156,12 @@ export default function GamePageSolo() {
                     {/*Title and panels*/}
                     <Grid item direction="column" xs={8} justify="space-between" className={classes.titleAndPanels}>
                         <Grid item className={classes.storyPanel}>
-                            <Typography component="p" gutteclassrBottom paragraph className={classes.storyPanelTextLocation}>Emplacement: {gameEvents.rome.scene0.location}</Typography>
+                            <Typography component="p" gutteclassrBottom paragraph className={classes.storyPanelTextLocation}>Emplacement: {currentScene.location}</Typography>
                             <Typography component="p" className={classes.storyPanelText}>
-                                {gameEvents.rome.scene0.description}
+                                {currentScene.description}
                             </Typography>
                             <Typography component="p" className={classes.storyPanelTextPrompt}>
-                                {gameEvents.rome.scene0.prompt}
+                                {currentScene.prompt}
                             </Typography>
                         </Grid>
 

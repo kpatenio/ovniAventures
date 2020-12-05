@@ -200,12 +200,12 @@ export default function GamePageSolo() {
                     <Grid item xs>
                         <List className={classes.list} subheader={<ListSubheader component="h2" className={classes.subheader}>Personnage</ListSubheader>}>
                             
-                            <ListItem className={classes.listitemtext}>Nom: {localStorage.getItem(KEYS.playerName)}</ListItem>
-                            <ListItem className={classes.listitemtext}>Santé: {localStorage.getItem(KEYS.playerHealth)}%</ListItem>
+                            <ListItem className={classes.listitemtext}>Nom: {sessionStorage.getItem(KEYS.playerName)}</ListItem>
+                            <ListItem className={classes.listitemtext}>Santé: {sessionStorage.getItem(KEYS.playerHealth)}%</ListItem>
                             <ListItem>
                                 <img
                                     className={classes.image}
-                                    src={humans[localStorage.getItem(KEYS.playerAvatarId)]}
+                                    src={humans[sessionStorage.getItem(KEYS.playerAvatarId)]}
                                 />
                             </ListItem>
                             <Divider className={classes.divider} />

@@ -126,9 +126,9 @@ function LandingPage() {
 
     useEffect(() => {
         if (mode === MODES.SINGLEPLAYER) {
-            localStorage.setItem(KEYS.playerName, playerName);
-            localStorage.setItem(KEYS.playerAvatarId, playerAvatarId);
-            localStorage.setItem(KEYS.playerHealth, 100);
+            sessionStorage.setItem(KEYS.playerName, playerName);
+            sessionStorage.setItem(KEYS.playerAvatarId, playerAvatarId);
+            sessionStorage.setItem(KEYS.playerHealth, 100);
             history.push('/' + MODES.SINGLEPLAYER);
         }
     }, [mode])

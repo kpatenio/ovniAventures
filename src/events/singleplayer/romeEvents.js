@@ -20,7 +20,7 @@ export const romeEvents = {
                 "nextScene": "scene0-2-1"
             },
             {
-                "buttonLabel": "Pas de nourriture! Plutôt... du vinsofkpd!",
+                "buttonLabel": "Pas de nourriture! Plutôt... du vin!",
                 "nextScene": "scene0-3-1"
             }
         ],

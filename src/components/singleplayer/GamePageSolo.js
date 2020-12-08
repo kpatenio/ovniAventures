@@ -9,7 +9,6 @@ import {
 } from '@material-ui/core/styles';
 import {
     FONTS,
-    KEYS
 } from '../../constants';
 import {
     initializeGame,
@@ -17,6 +16,7 @@ import {
 } from '../../events/singleplayer/gameEventScripts';
 import CharacterSideMenu from './CharacterSideMenu';
 import Panels from './Panels';
+import romeEvents from '../../events/singleplayer/romeEvents';
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -36,7 +36,9 @@ const useStyles = makeStyles((theme) => ({
 export default function GamePageSolo() {
     const [anchorEl, setAnchorEl] = useState(null)
     // TODO - set up in such a way where if we need to wait for initial screen to render, show a loading spinner
-    const [currentScene, setCurrentScene] = useState(initializeGame())
+    // const [currentScene, setCurrentScene] = useState(initializeGame())
+    const [currentScene, setCurrentScene] = useState(romeEvents["scene0"])
+    const [currentSceneId, setCurrentSceneId] = useState("scene0")
     const classes = useStyles();
 
     const onClickSettingsMenuButton = (event) => {
@@ -49,7 +51,9 @@ export default function GamePageSolo() {
     }
 
     const updateScene = (currentScene, buttonIndex) => {
-        setCurrentScene(getEventNode(currentScene, buttonIndex));
+        // setCurrentScene(getEventNode(currentScene, buttonIndex));
+        const nextScene = currentScene.choices[buttonIndex].nextScene;
+        setCurrentScene(romeEvents[nextScene]);
     }
 
     // componentdidstart lifecycle

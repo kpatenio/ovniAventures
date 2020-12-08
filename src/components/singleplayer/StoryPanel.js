@@ -41,12 +41,14 @@ export default function StoryPanel({currentScene}) {
     const classes = useStyles();
     return (
         <Grid item className={classes.storyPanel}>
-        <Typography component="p" gutteclassrBottom paragraph className={classes.storyPanelTextLocation}>Emplacement: {currentScene.location}</Typography>
+        <Typography component="p" gutteclassrBottom paragraph className={classes.storyPanelTextLocation}>Emplacement: {currentScene ? currentScene.location : null}</Typography>
         <Typography component="p" className={classes.storyPanelText}>
-            {currentScene.description}
+            <>
+            {currentScene ? currentScene.description : null}
+            </>
         </Typography>
         <Typography component="p" className={classes.storyPanelTextPrompt}>
-            {currentScene.prompt}
+            {currentScene ? currentScene.prompt : null}
         </Typography>
     </Grid>
     )

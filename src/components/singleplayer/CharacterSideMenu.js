@@ -70,7 +70,7 @@ export default function CharacterSideMenu({anchorEl, onClickSettingsMenuButton, 
             <List className={classes.list} subheader={<ListSubheader component="h2" className={classes.subheader}>Personnage</ListSubheader>}>
                 
                 <ListItem className={classes.listitemtext}>Nom: {sessionStorage.getItem(KEYS.playerName)}</ListItem>
-                <ListItem className={classes.listitemtext}>Santé: {sessionStorage.getItem(KEYS.playerHealth)}%</ListItem>
+                {/* <ListItem className={classes.listitemtext}>Santé: {sessionStorage.getItem(KEYS.playerHealth)}%</ListItem> */}
                 <ListItem>
                     <img
                         className={classes.image}
@@ -78,7 +78,7 @@ export default function CharacterSideMenu({anchorEl, onClickSettingsMenuButton, 
                     />
                 </ListItem>
                 <Divider className={classes.divider} />
-                <List>
+                {/* <List>
                     <ListItem button onClick={onClickSettingsMenuButton} className={classes.listitemtext}>Paramètres</ListItem>
                     <Menu
                         anchorEl={anchorEl}
@@ -94,12 +94,11 @@ export default function CharacterSideMenu({anchorEl, onClickSettingsMenuButton, 
                             }
                         }}
                     >
-                        {/*TODO - add a reset setting?*/}
                         <MenuItem>À propos</MenuItem>
                         <MenuItem>Passer à l'anglais</MenuItem>
                         <MenuItem>Quitter</MenuItem>
                     </Menu>
-                </List>
+                </List> */}
             </List>
         </Grid>
     )

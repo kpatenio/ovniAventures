@@ -21,6 +21,7 @@ import {
     KEYS
 } from '../constants';
 import CharacterSelect from './CharacterSelect'
+import testFunction from '../events/singleplayer/test';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -36,7 +37,14 @@ const useStyles = makeStyles((theme) => ({
     h2: {
         fontFamily: FONTS.BODY,
         color: "white",
+        fontWeight: "bold",
         marginBottom: 20
+    },
+    h3: {
+        fontFamily: FONTS.BODY,
+        color: "white",
+        fontSize: "1.5em",
+        lineHeight: 2
     },
     hr: {
         marginTop: 30,
@@ -44,7 +52,18 @@ const useStyles = makeStyles((theme) => ({
     },
     bodyText: {
         fontFamily: FONTS.BODY,
-        color: "white"
+        color: "white",
+        fontSize: 16,
+        lineHeight: 2
+    },
+    warning: {
+        fontFamily: FONTS.BODY,
+        color: "white",
+        fontSize: "1.1em",
+        lineHeight: 2,
+    },
+    warningLabel: {
+        fontWeight: "bold"
     },
     imageAlien: {
         height: 200,
@@ -109,6 +128,7 @@ function LandingPage() {
         if (!isInvalidName) {
             setMode(MODES.SINGLEPLAYER);
         }
+        // testFunction()
     }
 
     const onChangeNameModalInput = (e) => {
@@ -125,9 +145,9 @@ function LandingPage() {
 
     useEffect(() => {
         if (mode === MODES.SINGLEPLAYER) {
-            localStorage.setItem(KEYS.playerName, playerName);
-            localStorage.setItem(KEYS.playerAvatarId, playerAvatarId);
-            localStorage.setItem(KEYS.playerHealth, 100);
+            sessionStorage.setItem(KEYS.playerName, playerName);
+            sessionStorage.setItem(KEYS.playerAvatarId, playerAvatarId);
+            sessionStorage.setItem(KEYS.playerHealth, 100);
             history.push('/' + MODES.SINGLEPLAYER);
         }
     }, [mode])
@@ -138,13 +158,17 @@ function LandingPage() {
                 <Box component="main">
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>
-                                Mode en solo
+                                Jouez!
                         </Typography>
-                        <Typography variant="body1" className={classes.bodyText} paragraph>
-                            Affrontez les conséquences d'un adversaire CPU! L'extraterrestre prendra une décision au hasard, alors il faut être prêt.e à s'adapter pour survivre.
+                        <Typography variant="h3" className={classes.h3} paragraph>
+                            Vous êtes simplement un être humain. Une aventure vous attend. Essayez de survivre en faisant le bon choix. Sinon, c'est fini!
                         </Typography>
-                        <InputLabel style={{color: "white", fontFamily: FONTS.BODY, marginBottom: 10}}>
-                        Saisir votre nom pour commencer:
+                        <Typography variant="h4" className={classes.warning} paragraph>
+                                Avertissement: ce jeu n'est pas encore actuellement adapté aux téléphones portables. <Box component="span" className={classes.warningLabel}>Veuillez utiliser un ordinateur!</Box>
+                        </Typography>
+                        <hr className={classes.hr}/>
+                        <InputLabel style={{color: "white", fontFamily: FONTS.BODY, marginBottom: 10, fontSize: 16}}>
+                        Saisir votre nom et choisir votre personnage pour commencer:
                         </InputLabel>
                         <TextField onChange={onChangeNameModalInput} variant="standard" fullWidth InputProps={{className: classes.textfield}}/>
                         <Button className={classes.button} onClick={onClickSolo} disabled={isInvalidName} variant="contained" color="primary" size="large" fullWidth>
@@ -153,6 +177,7 @@ function LandingPage() {
                         <CharacterSelect onClickLeft={onClickLeft} onClickRight={onClickRight} playerAvatarId={playerAvatarId}/>
                     </Box>
 
+{/*
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>
                             Les règles
@@ -162,17 +187,19 @@ function LandingPage() {
                         </Typography>
                         <ul className={classes.bodyText}>
                             <li className={classes.rules}>L'extraterrestre et vous, vous jouerez à tour de rôle, et chaque décision affecte les décisions possibles pour chaque joueur.</li>
-                            <li className={classes.rules}>Vous commencez avec la santé pleine - un action nuisible la deminue. Si votre santé est toute épuisée, c'est « game over » pour vous!</li>
+                            <li className={classes.rules}>Vous commencez avec la santé pleine - une action nuisible la deminue. Si votre santé est toute épuisée, c'est « game over » pour vous!</li>
                             <li className={classes.rules}> Si vous survivez la partie, vous gagnerez!</li>
                         </ul>
                     </Box>
+*/}
+
 
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>
                             À propos
                         </Typography>
                         <Typography variant="body1" className={classes.bodyText}>
-                            <Box component="span" fontStyle="italic">Ovni aventures</Box> est inspiré par le livre <Box component="span" fontStyle="italic">OVNI</Box> des auteurs Fabrice Parme et Lewis Trondheim. Réalisé par <Link href="https://github.com/kpatenio/ovniAventures" underline="always" target="_blank" rel="noopener"> Katherine Patenio</Link>, le jeu est un recréation du livre original en format numérique et de la perspective d'un personnage humain.    
+                            <Box component="span" fontStyle="italic">Ovni aventures</Box> est inspiré par le livre <Box component="span" fontStyle="italic">OVNI</Box> des auteurs Fabrice Parme et Lewis Trondheim. Réalisé par <Link href="https://github.com/kpatenio/ovniAventures" underline="always" target="_blank" rel="noopener"> Katherine Patenio</Link>, ce jeu d'aventure de texte est une recréation numérique du livre original. De plus, ceci est un projet créatif pour le cours FREN 301 (Fall 2020) à l'Université de l'Alberta. Donc, la créatrice de cet application du Web ne possède pas les droits de n'importe quel chose qui fait référence au livre.
                         </Typography>
                     </Box>
                 </Box>

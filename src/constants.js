@@ -16,7 +16,7 @@ export const AVATARS = {
     HUMAN4: "human4.png"
 }
 
-// For local storage at the moment
+// For session storage at the moment
 export const KEYS = {
     playerAvatarId: "ovniAventuresPlayerAvatarId",
     playerName: "ovniAventuresPlayerName",

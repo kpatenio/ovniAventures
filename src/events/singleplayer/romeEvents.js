@@ -1,9 +1,5 @@
-const DESCRIPTION = "description";
-const PROMPT = "prompt";
-const LOCATION = "location";
-const CHOICES = "choices";
-
 export const romeEvents = {
+    // SCENE 0
     "scene0": {
         "description": 
                 `Ah! quel matin magnifique et ensoleillé. Aujourd'hui, c'est la finale du tournoi au Colisée! Vous attendez ce grand moment depuis longtemps. Enthousiaste, vous vous levez et vous vous préparez pour le jour. Vous avez envie de manger un repas délicieux et copieux.`
@@ -68,6 +64,8 @@ export const romeEvents = {
             },
         ],
     },
+
+    // SCENE 1
     "scene1": {
         "description": 
                 `Après du temps, vous entrez enfin le cœur de la ville. Le Colisée n'est pas maintenant très loin. Vous tombez sur une forche avec trois chemins possibles. `
@@ -85,6 +83,8 @@ export const romeEvents = {
             },
         ]
     },
+
+    // SCENE X - unfinished game screen
     "sceneX": {
         "description": 
                 `Parfait! Mais malheureusement, il y a un problème....

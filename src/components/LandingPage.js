@@ -21,7 +21,6 @@ import {
     KEYS
 } from '../constants';
 import CharacterSelect from './CharacterSelect'
-import testFunction from '../events/singleplayer/test';
 
 const useStyles = makeStyles((theme) => ({
     button: {

@@ -22,9 +22,14 @@ import {
 } from '../constants';
 import CharacterSelect from './CharacterSelect'
 
+/**
+ * This ensures that we customize styling of Material UI components.
+ * This could potentially be refactored using something more structured like "ThemeProvider" sometime in the future.
+ * 
+ * Source: https://material-ui.com/styles/advanced/#overriding-styles-classes-prop
+ */
 const useStyles = makeStyles((theme) => ({
     button: {
-        // border: "5px solid white",
         fontFamily: FONTS.BODY,
         marginBotton: 10,
         marginTop: 10
@@ -100,6 +105,7 @@ for (let key in AVATARS) {
 function LandingPage() {
 
     const classes = useStyles();
+    const history = useHistory();
 
     const [playerName, setPlayerName] = useState()
     const [isInvalidName, setIsInvalidName] = useState(true);
@@ -121,13 +127,11 @@ function LandingPage() {
             setPlayerAvatarId(playerAvatarId + 1);
         }
     }
-    const history = useHistory();
 
     const onClickSolo = (e) => {
         if (!isInvalidName) {
             setMode(MODES.SINGLEPLAYER);
         }
-        // testFunction()
     }
 
     const onChangeNameModalInput = (e) => {
@@ -175,22 +179,6 @@ function LandingPage() {
                         </Button>
                         <CharacterSelect onClickLeft={onClickLeft} onClickRight={onClickRight} playerAvatarId={playerAvatarId}/>
                     </Box>
-
-{/*
-                    <Box className={classes.box}>
-                        <Typography variant="h2" className={classes.h2}>
-                            Les règles
-                        </Typography>
-                        <Typography variant="body1" className={classes.bodyText}>
-                            Assumer le rôle d'un personnage humain et affronter les conséquences de vos propres décisions... ainsi que celles d'autres! Essayez-vous de survivre jusqu'à la fin du jeu en faisant le bon choix pendant votre parcours.
-                        </Typography>
-                        <ul className={classes.bodyText}>
-                            <li className={classes.rules}>L'extraterrestre et vous, vous jouerez à tour de rôle, et chaque décision affecte les décisions possibles pour chaque joueur.</li>
-                            <li className={classes.rules}>Vous commencez avec la santé pleine - une action nuisible la deminue. Si votre santé est toute épuisée, c'est « game over » pour vous!</li>
-                            <li className={classes.rules}> Si vous survivez la partie, vous gagnerez!</li>
-                        </ul>
-                    </Box>
-*/}
 
 
                     <Box className={classes.box}>

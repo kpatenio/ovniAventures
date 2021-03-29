@@ -10,12 +10,9 @@ import human3 from '../images/humans/human3.png';
 import human4 from '../images/humans/human4.png';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
 import {
     makeStyles
 } from '@material-ui/core/styles';
-
-// TODO - use require.context for importing all images
 
 const useStyles = makeStyles(() => ({
     paper: {
@@ -34,7 +31,7 @@ const humans = [
     human1,
     human2,
     human3,
-    human4
+    human4,
 ]
 
 export default function CharacterSelect({onClickLeft, onClickRight, playerAvatarId}) {

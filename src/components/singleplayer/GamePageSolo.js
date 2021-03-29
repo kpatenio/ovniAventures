@@ -32,10 +32,6 @@ export default function GamePageSolo() {
         setCurrentScene(romeEvents[nextScene]);
     }
 
-    useEffect(() => {
-        console.log(currentScene);
-    }, [currentScene])
-
     return (
         <>
             <Container className={classes.grid}>

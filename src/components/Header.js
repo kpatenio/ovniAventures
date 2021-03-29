@@ -11,7 +11,6 @@ import {
     Grid,
     Typography
 } from '@material-ui/core';
-
 import {
     makeStyles
 } from '@material-ui/core/styles';
@@ -20,6 +19,7 @@ import {
 } from '../constants';
 import alien from '../images/alien-transparent.png';
 import ufo from '../images/ufo.png'
+import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
@@ -60,13 +60,23 @@ const useStyles = makeStyles(() => ({
 
 export default function Header() {
     const classes = useStyles();
+    const history = useHistory();
     const {t, i18n} = useTranslation();
 
     const onClickLanguageButtonHandler = () => {
-        if (i18n.language === "en") {
+        if (i18n.language === 'en') {
             i18n.changeLanguage('fr')
         } else {
             i18n.changeLanguage('en')
+        }
+    }
+
+    const onClickHeaderTitle = () => {
+        if (history.location.pathname === '/solo') {
+            const shouldRedirect = window.confirm(t('headerLeaveDisclaimer'));
+            if (shouldRedirect) {
+                history.replace('/');
+            }
         }
     }
 
@@ -77,12 +87,14 @@ export default function Header() {
                     <AppBar position="fixed" className={classes.appBarContainer}>
                         <Grid direction="row" container justify="space-between" className={classes.h1}>
                             <Grid item xs>
-                                <Typography variant="h1" className={classes.h1}>
-                                    OVNI aventures
-                                </Typography>
+                                <Button onClick={onClickHeaderTitle}>
+                                    <Typography variant="h1" className={classes.h1}>
+                                        OVNI aventures
+                                    </Typography>
+                                </Button>
                             </Grid>
                             <Grid>
-                                <Button onClick={onClickLanguageButtonHandler} className={classes.languageButton}>{t('headerLanguage')}</Button>
+                                <Button onClick={onClickLanguageButtonHandler} disableRipple disableTouchRipple disableFocusRipple className={classes.languageButton}>{t('headerLanguage')}</Button>
                             </Grid>
                             {/* <Grid item xs alignItems="baseline">
                                     <img className={classes.imageAlien} src={alien}/>

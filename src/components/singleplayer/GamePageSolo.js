@@ -16,7 +16,7 @@ import {
 } from '../../events/singleplayer/gameEventScripts';
 import CharacterSideMenu from './CharacterSideMenu';
 import Panels from './Panels';
-import romeEvents from '../../events/singleplayer/romeEvents';
+import {translation as romeEvents} from '../../events/singleplayer/romeEventsFR';
 
 const useStyles = makeStyles((theme) => ({
     title: {

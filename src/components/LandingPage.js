@@ -160,7 +160,6 @@ function LandingPage() {
     return (
         <>
             <Container>
-            <h1>{t('Welcome to React')}</h1>
                 <Box component="main">
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>

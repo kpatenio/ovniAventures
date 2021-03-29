@@ -9,6 +9,7 @@ import {
     FONTS,
     KEYS
 } from '../../constants';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
     storyPanel: {
@@ -39,12 +40,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StoryPanel({currentScene}) {
     const classes = useStyles();
+    const {t, i18n} = useTranslation();
     return (
         <Grid item className={classes.storyPanel}>
         <Typography component="p" gutteclassrBottom paragraph className={classes.storyPanelTextLocation}>Emplacement: {currentScene ? currentScene.location : null}</Typography>
         <Typography component="p" className={classes.storyPanelText}>
             <>
-            {currentScene ? currentScene.description : null}
+            {currentScene ? t(`${currentScene.key}-description`) : null}
             </>
         </Typography>
         <Typography component="p" className={classes.storyPanelTextPrompt}>

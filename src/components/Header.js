@@ -4,7 +4,9 @@ import {
     NavLink,
 } from 'react-router-dom';
 import {
+    AppBar,
     Box,
+    Button,
     Container,
     Grid,
     Typography
@@ -18,41 +20,76 @@ import {
 } from '../constants';
 import alien from '../images/alien-transparent.png';
 import ufo from '../images/ufo.png'
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
+    container: {
+        height: 70
+    },
+    appBarContainer: {
+        // background: "transparent",
+        boxShadow: "none",
+        background: "#1e1c21",
+        // background: "#37333d",
+        paddingLeft: 50,
+        paddingRight: 50,
+        paddingBottom: 30,
+        paddingTop: 30,
+    },
+    languageButton: {
+        fontSize: 20,
+        color: "white",
+        fontFamily: FONTS.BODY,
+        fontWeight: "bold",
+    },
     h1: {
         fontFamily: FONTS.TITLE,
         color: "white",
+        fontSize: 30,
       },
-      imageAlien: {
-        height: 200,
-        width: 200,
-    },
-    imageUfo: {
-        height: 175,
-        width: 175,
-        marginBottom: 16
-    },
+    // imageAlien: {
+    //     height: 50,
+    //     width: 50,
+    // },
+    // imageUfo: {
+    //     height: 175,
+    //     width: 175,
+    //     marginBottom: 16
+    // },
 }))
 
 export default function Header() {
     const classes = useStyles();
+    const {t, i18n} = useTranslation();
+
+    const onClickLanguageButtonHandler = () => {
+        if (i18n.language === "en") {
+            i18n.changeLanguage('fr')
+        } else {
+            i18n.changeLanguage('en')
+        }
+    }
+
     return (
         <>
-            <Container>
-                <Box component="header">
-                    <Grid direction="row" container justify="space-between" className={classes.h1}>
-                        <Grid item xs>
-                            <Typography variant="h1" className={classes.h1}>
-                                OVNI aventures
-                            </Typography>
+            <Container component="header" className={classes.container}>
+                <Box component="nav" className={classes.navContainer}>
+                    <AppBar position="fixed" className={classes.appBarContainer}>
+                        <Grid direction="row" container justify="space-between" className={classes.h1}>
+                            <Grid item xs>
+                                <Typography variant="h1" className={classes.h1}>
+                                    OVNI aventures
+                                </Typography>
+                            </Grid>
+                            <Grid>
+                                <Button onClick={onClickLanguageButtonHandler} className={classes.languageButton}>{t('headerLanguage')}</Button>
+                            </Grid>
+                            {/* <Grid item xs alignItems="baseline">
+                                    <img className={classes.imageAlien} src={alien}/>
+                                <img className={classes.imageUfo} src={ufo}/>
+                                </Grid> */}
                         </Grid>
-                        <Grid item xs alignItems="baseline">
-                            <img className={classes.imageAlien} src={alien}/>
-                            <img className={classes.imageUfo} src={ufo}/>
-                        </Grid>
-                    </Grid>
-                    <hr className={classes.hr}/>
+                    </AppBar>
                 </Box>
             </Container>
         </>

@@ -22,9 +22,6 @@ const useStyles = makeStyles(() => ({
     image: {
         height: 200
     },
-    root: {
-        margin: 20
-    }
 }))
 
 const humans = [
@@ -38,7 +35,7 @@ export default function CharacterSelect({onClickLeft, onClickRight, playerAvatar
     const classes = useStyles();
     return (
         <>
-        <Grid container justify="center" className={classes.root}>
+        <Grid container justify="center">
         <Paper className={classes.paper}>
             <Grid item container justify="center" alignItems="center">
                 <Grid item>

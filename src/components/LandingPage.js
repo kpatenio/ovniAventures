@@ -33,23 +33,15 @@ const useStyles = makeStyles((theme) => ({
     button: {
         fontFamily: FONTS.BODY,
         marginBotton: 10,
-        marginTop: 10
-    },
-    h1: {
-      fontFamily: FONTS.TITLE,
-      color: "white",
+        marginTop: 10,
+        fontSize: FONTS.BODYFONTSIZE,
     },
     h2: {
         fontFamily: FONTS.BODY,
         color: "white",
         fontWeight: "bold",
-        marginBottom: 20
-    },
-    h3: {
-        fontFamily: FONTS.BODY,
-        color: "white",
-        fontSize: "1.5em",
-        lineHeight: 2
+        marginBottom: 20,
+        fontSize: 30,
     },
     hr: {
         marginTop: 30,
@@ -58,30 +50,27 @@ const useStyles = makeStyles((theme) => ({
     bodyText: {
         fontFamily: FONTS.BODY,
         color: "white",
-        fontSize: 16,
+        fontSize: FONTS.BODYFONTSIZE,
         lineHeight: 2
     },
     warning: {
         fontFamily: FONTS.BODY,
         color: "white",
-        fontSize: "1.1em",
+        fontSize: FONTS.BODYFONTSIZE,
         lineHeight: 2,
     },
-    warningLabel: {
+    warningBold: {
         fontWeight: "bold"
-    },
-    imageAlien: {
-        height: 200,
-        width: 200,
-    },
-    imageUfo: {
-        height: 175,
-        width: 175,
-        marginBottom: 16
     },
     earth: {
         height: 200,
         width: 200,
+    },
+    textFieldLabel: {
+        color: "white",
+        fontFamily: FONTS.BODY,
+        marginBottom: 15,
+        fontSize: FONTS.BODYFONTSIZE,
     },
     textfield: {
         backgroundColor: "white",
@@ -91,11 +80,9 @@ const useStyles = makeStyles((theme) => ({
         padding: 10
     },
     box: {
-        padding: 30,
+        marginTop: 30,
+        marginBottom: 30,
     },
-    rules: {
-        margin: 10
-    }
 }))
 
 let listOfAvatars = [];
@@ -165,18 +152,19 @@ function LandingPage() {
                         <Typography variant="h2" className={classes.h2}>
                             {t('landingSubheader')}
                         </Typography>
-                        <Typography variant="h3" className={classes.h3} paragraph>
+                        <Typography variant="h3" className={classes.bodyText} paragraph>
                             {t('landingDescription')}
-                        </Typography>
-                        <Typography variant="h4" className={classes.warning} paragraph>
-                            {t('landingDisclaimer1')}
-                            {'\xa0'}
-                            <Box component="span" className={classes.warningLabel}>{t('landingDisclaimer1Bolded')}</Box>
                         </Typography>
 
                         <hr className={classes.hr}/>
+                        <Typography variant="h4" className={classes.warning} paragraph>
+                            {t('landingDisclaimer1')}
+                            {'\xa0'}
+                            <Box component="span" className={classes.warningBold}>{t('landingDisclaimer1Bolded')}</Box>
+                        </Typography>
+                        <hr className={classes.hr}/>
 
-                        <InputLabel style={{color: "white", fontFamily: FONTS.BODY, marginBottom: 10, fontSize: 16}}>
+                        <InputLabel className={classes.textFieldLabel}>
                             {t('landingLabelInputName')}
                         </InputLabel>
 
@@ -184,13 +172,14 @@ function LandingPage() {
                         <Button className={classes.button} onClick={onClickSolo} disabled={isInvalidName} variant="contained" color="primary" size="large" fullWidth>
                             {t('landingLabelNewGame')}
                         </Button>
-                        <CharacterSelect onClickLeft={onClickLeft} onClickRight={onClickRight} playerAvatarId={playerAvatarId}/>
                     </Box>
+
+                    <CharacterSelect onClickLeft={onClickLeft} onClickRight={onClickRight} playerAvatarId={playerAvatarId}/>
 
 
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>
-                            {t('landingSubheaderAbout')}:
+                            {t('landingSubheaderAbout')}
                         </Typography>
                         <Typography variant="body1" className={classes.bodyText}>
                             <Box component="span" fontStyle="italic">Ovni aventures{'\xa0'}</Box>

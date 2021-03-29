@@ -76,7 +76,7 @@ export const translation = {
                     `After some time, you finally enter the heart of the city. The Colliseum should not be far now. You find yourself facing several paths.`
             ,
             "prompt": `You decide to go...`,
-            "location": "quelque part à la ville de Rome",
+            "location": "somewhere in the city of Rome",
             "choices": [
                 {
                     "buttonLabel": "Left, towards the north.",

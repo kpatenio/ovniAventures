@@ -21,6 +21,7 @@ import {
     KEYS
 } from '../constants';
 import CharacterSelect from './CharacterSelect'
+import { useTranslation } from 'react-i18next';
 
 /**
  * This ensures that we customize styling of Material UI components.
@@ -106,6 +107,7 @@ function LandingPage() {
 
     const classes = useStyles();
     const history = useHistory();
+    const {t, i18n} = useTranslation();
 
     const [playerName, setPlayerName] = useState()
     const [isInvalidName, setIsInvalidName] = useState(true);
@@ -158,6 +160,7 @@ function LandingPage() {
     return (
         <>
             <Container>
+            <h1>{t('Welcome to React')}</h1>
                 <Box component="main">
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>

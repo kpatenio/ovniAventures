@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     Divider,
     Grid,
@@ -12,10 +12,11 @@ import {
     KEYS,
     FONTS
 } from '../../constants';
-
 import {
     makeStyles
 } from '@material-ui/core/styles';
+import {useTranslation} from 'react-i18next';
+
 import human1 from '../../images/humans/human1.png';
 import human2 from '../../images/humans/human2.png';
 import human3 from '../../images/humans/human3.png';
@@ -63,13 +64,25 @@ const humans = [
     human4
 ]
 
-export default function CharacterSideMenu({anchorEl, onClickSettingsMenuButton, onCloseSettingsMenu}) {
+export default function CharacterSideMenu() {
     const classes = useStyles();
+    const {t} = useTranslation();
+    const [anchorEl, setAnchorEl] = useState();
+    
+    const onClickSettingsMenuButton = (event) => {
+        setAnchorEl(event.currentTarget);
+    }
+
+    const onCloseSettingsMenu = () => {
+        setAnchorEl(null);
+    }
+
+
     return (
         <Grid item xs>
-            <List className={classes.list} subheader={<ListSubheader component="h2" className={classes.subheader}>Personnage</ListSubheader>}>
+            <List className={classes.list} subheader={<ListSubheader component="h2" className={classes.subheader}>{t('soloLabelCharacter')}</ListSubheader>}>
                 
-                <ListItem className={classes.listitemtext}>Nom: {sessionStorage.getItem(KEYS.playerName)}</ListItem>
+                <ListItem className={classes.listitemtext}>{t('soloLabelName')}: {sessionStorage.getItem(KEYS.playerName)}</ListItem>
                 {/* <ListItem className={classes.listitemtext}>Santé: {sessionStorage.getItem(KEYS.playerHealth)}%</ListItem> */}
                 <ListItem>
                     <img
@@ -78,15 +91,15 @@ export default function CharacterSideMenu({anchorEl, onClickSettingsMenuButton, 
                     />
                 </ListItem>
                 <Divider className={classes.divider} />
-                {/* <List>
-                    <ListItem button onClick={onClickSettingsMenuButton} className={classes.listitemtext}>Paramètres</ListItem>
+                <List>
+                    <ListItem button disableRipple disableTouchRipple disableFocusRipple onClick={onClickSettingsMenuButton} className={classes.listitemtext}>{t('soloLabelSettings')}</ListItem>
                     <Menu
                         anchorEl={anchorEl}
                         open={Boolean(anchorEl)}
                         onClose={onCloseSettingsMenu}
                         PaperProps={{style: {
-                            color: 'white',
-                            backgroundColor: '#3c3742'
+                            color: 'black',
+                            backgroundColor: 'white'
                         }}}
                         MenuListProps={{
                             style: {
@@ -94,11 +107,9 @@ export default function CharacterSideMenu({anchorEl, onClickSettingsMenuButton, 
                             }
                         }}
                     >
-                        <MenuItem>À propos</MenuItem>
-                        <MenuItem>Passer à l'anglais</MenuItem>
-                        <MenuItem>Quitter</MenuItem>
+                        <MenuItem>Coming Soon!</MenuItem>
                     </Menu>
-                </List> */}
+                </List>
             </List>
         </Grid>
     )

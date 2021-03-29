@@ -10,45 +10,21 @@ import {
 import {
     FONTS,
 } from '../../constants';
-import {
-    initializeGame,
-    getEventNode
-} from '../../events/singleplayer/gameEventScripts';
 import CharacterSideMenu from './CharacterSideMenu';
 import Panels from './Panels';
-import romeEvents from '../../events/singleplayer/romeEvents';
+import {translation as romeEvents} from '../../events/singleplayer/romeEvents/romeEventsFR';
 
 const useStyles = makeStyles((theme) => ({
-    title: {
-        fontFamily: FONTS.TITLE,
-        color: "white",
-        fontSize: "2.5em",
-        marginTop: 100
-    },
     grid: {
         // height: "100vh",
-    },
-    titleAndPanels: {
-        height: "100%"
+        marginTop: 40
     },
 }))
 
 export default function GamePageSolo() {
-    const [anchorEl, setAnchorEl] = useState(null)
-    // TODO - set up in such a way where if we need to wait for initial screen to render, show a loading spinner
-    // const [currentScene, setCurrentScene] = useState(initializeGame())
+    // TODO (maybe) - set up in such a way where if we need to wait for initial screen to render, show a loading spinner
     const [currentScene, setCurrentScene] = useState(romeEvents["scene0"])
-    const [currentSceneId, setCurrentSceneId] = useState("scene0")
     const classes = useStyles();
-
-    const onClickSettingsMenuButton = (event) => {
-        setAnchorEl(event.currentTarget);
-        // setIsSettingMenuOpen(!isSettingsMenuOpen);
-    }
-
-    const onCloseSettingsMenu = () => {
-        setAnchorEl(null);
-    }
 
     const updateScene = (currentScene, buttonIndex) => {
         // setCurrentScene(getEventNode(currentScene, buttonIndex));
@@ -56,33 +32,12 @@ export default function GamePageSolo() {
         setCurrentScene(romeEvents[nextScene]);
     }
 
-    // componentdidstart lifecycle
-    useEffect (() => {
-        // setCurrentScene(initializeGame())
-        // console.log(currentScene)
-    }, [])
-
-    useEffect(() => {
-        console.log(currentScene);
-    }, [currentScene])
-
     return (
         <>
             <Container className={classes.grid}>
-                
-                <Grid>
-                    <Typography component="h1" className={classes.title}>
-                            Ovni aventures
-                    </Typography>
-                </Grid>
-
                 <Grid container direction="row" alignItems="stretch" justify="space-between">       
                     <Panels currentScene={currentScene} updateScene={updateScene}/>
-                    <CharacterSideMenu
-                        anchorEl={anchorEl}
-                        onClickSettingsMenuButton={onClickSettingsMenuButton}
-                        onCloseSettingsMenu={onCloseSettingsMenu}
-                    />
+                    <CharacterSideMenu/>
                 </Grid>
             </Container>
         </>

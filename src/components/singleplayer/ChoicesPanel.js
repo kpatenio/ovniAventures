@@ -9,6 +9,7 @@ import {
 import {
     FONTS
 } from '../../constants';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -23,27 +24,47 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ChoicesPanel({currentScene, updateScene}) {
     const classes = useStyles();
+    const {t, i18n} = useTranslation();
 
     return (
         <Grid item direction="column">
             <Grid item>
                 {currentScene.choices[0] ? (
                     <Box className={classes.choicePanel}>
-                        <Button onClick={() => updateScene(currentScene, 0)} variant="contained" className={classes.button} fullWidth>{currentScene.choices[0]["buttonLabel"]}</Button>
+                        <Button
+                            onClick={() => updateScene(currentScene, 0)}
+                            variant="contained" className={classes.button}
+                            fullWidth
+                        >
+                            {t(`${currentScene.key}-buttonLabel0`)}
+                        </Button>
                     </Box>
                 ) : null}
             </Grid>
             <Grid item>
                 {currentScene.choices[1] ? (
                     <Box className={classes.choicePanel}>
-                        <Button onClick={() => updateScene(currentScene, 1)} variant="contained" className={classes.button} fullWidth>{currentScene.choices[1]["buttonLabel"]}</Button>
+                        <Button
+                            onClick={() => updateScene(currentScene, 1)}
+                            variant="contained" className={classes.button}
+                            fullWidth
+                        >
+                            {t(`${currentScene.key}-buttonLabel1`)}
+                        </Button>
                     </Box>
                     ) : null}
             </Grid>
             <Grid item>
             {currentScene.choices[2] ? (
                     <Box className={classes.choicePanel}>
-                        <Button onClick={() => updateScene(currentScene, 2)} variant="contained" className={classes.button} fullWidth>{currentScene.choices[2]["buttonLabel"]}</Button>
+                        <Button
+                            onClick={() => updateScene(currentScene, 2)}
+                            variant="contained"
+                            className={classes.button}
+                            fullWidth
+                        >
+                            {t(`${currentScene.key}-buttonLabel2`)}
+                        </Button>
                     </Box>
                 ) : null}
             </Grid>

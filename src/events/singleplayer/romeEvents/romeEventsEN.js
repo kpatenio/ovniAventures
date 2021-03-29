@@ -5,7 +5,7 @@ export const translation = {
             "description": 
                     `Ah, what a sunny day. Today is the final day of the tournament at the Colliseum. You have been waiting for this moment. Eager to attend, you get up prepare for the day. But first, you feeling like eating a delicious, copious meal.`
             ,
-            "prompt": `What shall you consume?`,
+            "prompt": `What would you like to have?`,
             "location": "somewhere in the middle of Rome",
             "choices": [
                 {

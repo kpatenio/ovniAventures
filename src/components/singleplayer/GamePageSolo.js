@@ -10,13 +10,9 @@ import {
 import {
     FONTS,
 } from '../../constants';
-import {
-    initializeGame,
-    getEventNode
-} from '../../events/singleplayer/gameEventScripts';
 import CharacterSideMenu from './CharacterSideMenu';
 import Panels from './Panels';
-import {translation as romeEvents} from '../../events/singleplayer/romeEventsFR';
+import {translation as romeEvents} from '../../events/singleplayer/romeEvents/romeEventsFR';
 
 const useStyles = makeStyles((theme) => ({
     title: {

@@ -1,6 +1,9 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import { translation as FR } from "./events/singleplayer/romeEventsFR"
+import { translation as romeEventsFR } from "./events/singleplayer/romeEvents/romeEventsFR";
+import { translation as romeEventsEN } from "./events/singleplayer/romeEvents/romeEventsEN";
+import fr from './locales/fr/fr.json';
+import en from './locales/en/en.json';
 
 function createNewObjToJsonify(obj) {
     const entries = Object.entries(obj);
@@ -28,14 +31,19 @@ function createNewObjToJsonify(obj) {
     return objToJsonify;
 }
 
-const objFR = createNewObjToJsonify(FR)
+// TODO - can we use separate objects? Explore react-i18next docs
+// prepare french translations into one object for now
+const finalRomeEventsFR = createNewObjToJsonify(romeEventsFR)
+const objFR = Object.assign({}, finalRomeEventsFR, fr)
+
+// prepare english translations into one object for now
+const finalRomeEventsEN = createNewObjToJsonify(romeEventsEN)
+const objEN = Object.assign({}, finalRomeEventsEN, en)
 
 // the translations
 const resources = {
   en: {
-    translation: {
-      "Welcome to React": "Welcome to React and react-i18next"
-    }
+    translation: objEN
   },
   fr: {
     translation: objFR
@@ -46,7 +54,7 @@ i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    lng: "fr",
+    lng: "en",
 
     keySeparator: false, // we do not use keys in form messages.welcome
 

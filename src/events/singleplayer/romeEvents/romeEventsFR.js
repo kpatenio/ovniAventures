@@ -1,5 +1,4 @@
 export const translation = {
-    // "Welcome to React": "Bienvenue à React et react-i18next",
         // SCENE 0
         "scene0": {
             "key": "scene0",

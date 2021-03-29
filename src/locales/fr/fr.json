@@ -1,0 +1,16 @@
+{
+    "landingSubheader": "Préparez-vous à l'aventure",
+    "landingDescription": "Situé.e dans un monde dangéreux, vous assumez le rôle d'un être humain. Essayez de survivre en faisant le bon choix. Sinon, c'est fini!",
+    "landingDisclaimer1": "Avertissement: ce jeu n'est pas encore actuellement adapté aux téléphones portables.",
+    "landingDisclaimer1Bolded": "Veuillez utiliser un ordinateur!",
+    "landingLabelInputName": "Saisir votre nom et choisir votre personnage pour commencer:",
+    "landingLabelNewGame": "Nouvelle partie",
+    "landingSubheaderAbout": "À propos",
+    "landingAboutIsInspiredBy": "est inspiré par le livre",
+    "landingAboutOfAuthors": "des auteurs Fabrice Parme et Lewis Trondheim.",
+    "landingAboutCreatedBy": "Réalisé par",
+    "landingAboutProjectClassCopyright": "ce jeu d'aventure de texte est une recréation numérique du livre original. De plus, ceci est un projet créatif pour le cours FREN 301 (Fall 2020) à l'Université de l'Alberta. Donc, la créatrice de cet application du Web ne possède pas les droits de n'importe quel chose qui fait référence au livre.",
+    "soloLabelCharacter": "Personnage", 
+    "soloLabelLocation": "Emplacement",
+    "soloLabelName": "Nom" 
+}

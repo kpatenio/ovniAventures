@@ -43,14 +43,21 @@ export default function StoryPanel({currentScene}) {
     const {t, i18n} = useTranslation();
     return (
         <Grid item className={classes.storyPanel}>
-        <Typography component="p" gutteclassrBottom paragraph className={classes.storyPanelTextLocation}>Emplacement: {currentScene ? currentScene.location : null}</Typography>
+        <Typography
+            component="p"
+            gutteclassrBottom
+            paragraph
+            className={classes.storyPanelTextLocation}
+        >
+            {t('soloLabelLocation')}: {currentScene ? t(`${currentScene.key}-location`): null}
+        </Typography>
         <Typography component="p" className={classes.storyPanelText}>
             <>
             {currentScene ? t(`${currentScene.key}-description`) : null}
             </>
         </Typography>
         <Typography component="p" className={classes.storyPanelTextPrompt}>
-            {currentScene ? currentScene.prompt : null}
+            {currentScene ? t(`${currentScene.key}-prompt`) : null}
         </Typography>
     </Grid>
     )

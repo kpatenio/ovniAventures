@@ -12,10 +12,11 @@ import {
     KEYS,
     FONTS
 } from '../../constants';
-
 import {
     makeStyles
 } from '@material-ui/core/styles';
+import {useTranslation} from 'react-i18next';
+
 import human1 from '../../images/humans/human1.png';
 import human2 from '../../images/humans/human2.png';
 import human3 from '../../images/humans/human3.png';
@@ -65,11 +66,13 @@ const humans = [
 
 export default function CharacterSideMenu({anchorEl, onClickSettingsMenuButton, onCloseSettingsMenu}) {
     const classes = useStyles();
+    const {t,i18n} = useTranslation();
+
     return (
         <Grid item xs>
-            <List className={classes.list} subheader={<ListSubheader component="h2" className={classes.subheader}>Personnage</ListSubheader>}>
+            <List className={classes.list} subheader={<ListSubheader component="h2" className={classes.subheader}>{t('soloLabelCharacter')}</ListSubheader>}>
                 
-                <ListItem className={classes.listitemtext}>Nom: {sessionStorage.getItem(KEYS.playerName)}</ListItem>
+                <ListItem className={classes.listitemtext}>{t('soloLabelName')}: {sessionStorage.getItem(KEYS.playerName)}</ListItem>
                 {/* <ListItem className={classes.listitemtext}>Santé: {sessionStorage.getItem(KEYS.playerHealth)}%</ListItem> */}
                 <ListItem>
                     <img

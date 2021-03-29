@@ -163,21 +163,26 @@ function LandingPage() {
                 <Box component="main">
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>
-                                Jouez!
+                            {t('landingSubheader')}
                         </Typography>
                         <Typography variant="h3" className={classes.h3} paragraph>
-                            Vous êtes simplement un être humain. Une aventure vous attend. Essayez de survivre en faisant le bon choix. Sinon, c'est fini!
+                            {t('landingDescription')}
                         </Typography>
                         <Typography variant="h4" className={classes.warning} paragraph>
-                                Avertissement: ce jeu n'est pas encore actuellement adapté aux téléphones portables. <Box component="span" className={classes.warningLabel}>Veuillez utiliser un ordinateur!</Box>
+                            {t('landingDisclaimer1')}
+                            {'\xa0'}
+                            <Box component="span" className={classes.warningLabel}>{t('landingDisclaimer1Bolded')}</Box>
                         </Typography>
+
                         <hr className={classes.hr}/>
+
                         <InputLabel style={{color: "white", fontFamily: FONTS.BODY, marginBottom: 10, fontSize: 16}}>
-                        Saisir votre nom et choisir votre personnage pour commencer:
+                            {t('landingLabelInputName')}
                         </InputLabel>
+
                         <TextField onChange={onChangeNameModalInput} variant="standard" fullWidth InputProps={{className: classes.textfield}}/>
                         <Button className={classes.button} onClick={onClickSolo} disabled={isInvalidName} variant="contained" color="primary" size="large" fullWidth>
-                            Nouvelle partie
+                            {t('landingLabelNewGame')}
                         </Button>
                         <CharacterSelect onClickLeft={onClickLeft} onClickRight={onClickRight} playerAvatarId={playerAvatarId}/>
                     </Box>
@@ -185,10 +190,20 @@ function LandingPage() {
 
                     <Box className={classes.box}>
                         <Typography variant="h2" className={classes.h2}>
-                            À propos
+                            {t('landingSubheaderAbout')}:
                         </Typography>
                         <Typography variant="body1" className={classes.bodyText}>
-                            <Box component="span" fontStyle="italic">Ovni aventures</Box> est inspiré par le livre <Box component="span" fontStyle="italic">OVNI</Box> des auteurs Fabrice Parme et Lewis Trondheim. Réalisé par <Link href="https://github.com/kpatenio/ovniAventures" underline="always" target="_blank" rel="noopener"> Katherine Patenio</Link>, ce jeu d'aventure de texte est une recréation numérique du livre original. De plus, ceci est un projet créatif pour le cours FREN 301 (Fall 2020) à l'Université de l'Alberta. Donc, la créatrice de cet application du Web ne possède pas les droits de n'importe quel chose qui fait référence au livre.
+                            <Box component="span" fontStyle="italic">Ovni aventures{'\xa0'}</Box>
+                            {t('landingAboutIsInspiredBy')}
+                            <Box component="span" fontStyle="italic">{'\xa0'}OVNI{'\xa0'}</Box>
+                            {t('landingAboutOfAuthors')}
+                            {'\xa0'}
+                            {t('landingAboutCreatedBy')}
+                            {'\xa0'}
+                            <Link href="https://github.com/kpatenio/ovniAventures" underline="always" target="_blank" rel="noopener">Katherine Patenio</Link>
+                            {','}
+                            {'\xa0'}
+                            {t('landingAboutProjectClassCopyright')}
                         </Typography>
                     </Box>
                 </Box>

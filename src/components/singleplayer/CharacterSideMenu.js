@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     Divider,
     Grid,
@@ -64,9 +64,19 @@ const humans = [
     human4
 ]
 
-export default function CharacterSideMenu({anchorEl, onClickSettingsMenuButton, onCloseSettingsMenu}) {
+export default function CharacterSideMenu() {
     const classes = useStyles();
-    const {t,i18n} = useTranslation();
+    const {t} = useTranslation();
+    const [anchorEl, setAnchorEl] = useState();
+    
+    const onClickSettingsMenuButton = (event) => {
+        setAnchorEl(event.currentTarget);
+    }
+
+    const onCloseSettingsMenu = () => {
+        setAnchorEl(null);
+    }
+
 
     return (
         <Grid item xs>
@@ -81,15 +91,15 @@ export default function CharacterSideMenu({anchorEl, onClickSettingsMenuButton, 
                     />
                 </ListItem>
                 <Divider className={classes.divider} />
-                {/* <List>
-                    <ListItem button onClick={onClickSettingsMenuButton} className={classes.listitemtext}>Paramètres</ListItem>
+                <List>
+                    <ListItem button disableRipple disableTouchRipple disableFocusRipple onClick={onClickSettingsMenuButton} className={classes.listitemtext}>{t('soloLabelSettings')}</ListItem>
                     <Menu
                         anchorEl={anchorEl}
                         open={Boolean(anchorEl)}
                         onClose={onCloseSettingsMenu}
                         PaperProps={{style: {
-                            color: 'white',
-                            backgroundColor: '#3c3742'
+                            color: 'black',
+                            backgroundColor: 'white'
                         }}}
                         MenuListProps={{
                             style: {
@@ -97,11 +107,9 @@ export default function CharacterSideMenu({anchorEl, onClickSettingsMenuButton, 
                             }
                         }}
                     >
-                        <MenuItem>À propos</MenuItem>
-                        <MenuItem>Passer à l'anglais</MenuItem>
-                        <MenuItem>Quitter</MenuItem>
+                        <MenuItem>Coming Soon!</MenuItem>
                     </Menu>
-                </List> */}
+                </List>
             </List>
         </Grid>
     )

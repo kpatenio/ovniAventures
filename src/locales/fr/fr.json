@@ -13,5 +13,6 @@
     "landingAboutProjectClassCopyright": "ce jeu d'aventure de texte est une recréation numérique du livre original. De plus, ceci est un projet créatif pour le cours FREN 301 (Fall 2020) à l'Université de l'Alberta. Donc, la créatrice de cet application du Web ne possède pas les droits de n'importe quel chose qui fait référence au livre.",
     "soloLabelCharacter": "Personnage", 
     "soloLabelLocation": "Emplacement",
-    "soloLabelName": "Nom" 
+    "soloLabelName": "Nom",
+    "soloLabelSettings": "Paramètres"
 }

@@ -22,19 +22,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function GamePageSolo() {
-    const [anchorEl, setAnchorEl] = useState(null)
     // TODO (maybe) - set up in such a way where if we need to wait for initial screen to render, show a loading spinner
     const [currentScene, setCurrentScene] = useState(romeEvents["scene0"])
     const classes = useStyles();
-
-    const onClickSettingsMenuButton = (event) => {
-        setAnchorEl(event.currentTarget);
-        // setIsSettingMenuOpen(!isSettingsMenuOpen);
-    }
-
-    const onCloseSettingsMenu = () => {
-        setAnchorEl(null);
-    }
 
     const updateScene = (currentScene, buttonIndex) => {
         // setCurrentScene(getEventNode(currentScene, buttonIndex));
@@ -51,11 +41,7 @@ export default function GamePageSolo() {
             <Container className={classes.grid}>
                 <Grid container direction="row" alignItems="stretch" justify="space-between">       
                     <Panels currentScene={currentScene} updateScene={updateScene}/>
-                    <CharacterSideMenu
-                        anchorEl={anchorEl}
-                        onClickSettingsMenuButton={onClickSettingsMenuButton}
-                        onCloseSettingsMenu={onCloseSettingsMenu}
-                    />
+                    <CharacterSideMenu/>
                 </Grid>
             </Container>
         </>

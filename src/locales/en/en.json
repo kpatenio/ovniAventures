@@ -13,5 +13,6 @@
     "landingAboutProjectClassCopyright": "this text adventure game is a digital recreation of the original book. This is also a creative project for the course FREN 301 (Fall 2021) at the University of Alberta. Therefore, the developer of this web application does not hold the rights of anything referencing the aforementioned book.",
     "soloLabelCharacter": "Character", 
     "soloLabelLocation": "Location",
-    "soloLabelName": "Name" 
+    "soloLabelName": "Name",
+    "soloLabelSettings": "Options"
 }

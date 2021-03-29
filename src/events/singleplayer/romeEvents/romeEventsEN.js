@@ -99,7 +99,7 @@ export const translation = {
     
                     If you would like to follow any progress for this project, look at the following link: https://github.com/kpatenio/ovniAventures. Don't fret, for there will be more to do in this game one day!
                         
-                    Thanks for looking at my project and take care!
+                    Thanks for playing my text adventure game and take care!
                     `
             ,
             "prompt": `- Katherine Patenio`,

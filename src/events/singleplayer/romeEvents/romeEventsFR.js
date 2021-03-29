@@ -3,10 +3,10 @@ export const translation = {
         "scene0": {
             "key": "scene0",
             "description": 
-                    `Ah! quel matin magnifique et ensoleillé. Aujourd'hui, c'est la finale du tournoi au Colisée! Vous attendez ce grand moment depuis longtemps. Enthousiaste, vous vous levez et vous vous préparez pour le jour. Vous avez envie de manger un repas délicieux et copieux.`
+                    `Ah! quel matin magnifique et ensoleillé. Aujourd'hui, c'est la finale du tournoi au Colisée! Vous attendez ce grand moment depuis longtemps. Enthousiaste, vous vous levez et vous vous préparez pour le jour. Mais d'abord, vous avez envie de manger un repas délicieux et copieux.`
             ,
-            "prompt": `Qu'est-ce que vous voudriez consommer?`,
-            "location": "quelque part à la ville de Rome",
+            "prompt": `Qu'est-ce que vous voudriez manger ou boire?`,
+            "location": "quelque part dans la ville de Rome",
             "choices": [
                 {
                     "buttonLabel": "Du pain, comme d'habitude.",
@@ -28,10 +28,10 @@ export const translation = {
                     `Un bon choix! Le pain, un tel repas simple pour une personne modeste.`
             ,
             "prompt": `Vous êtes prêt.e à vous diriger vers le Colisée.`,
-            "location": "quelque part à la ville de Rome",
+            "location": "quelque part dans la ville de Rome",
             "choices": [
                 {
-                    "buttonLabel": "Avancer au Colisée",
+                    "buttonLabel": "Avancez vers le Colisée",
                     "nextScene": "scene1"
                 },
             ],
@@ -41,11 +41,11 @@ export const translation = {
             "description": 
                     `Une aventure vous attend, donc il faut manger le repas d'un guerrier! Vous bouffez de la viande et vous vous sentez plus fort.e que l'habitude.`
             ,
-            "prompt": `Enfin, vous êtes prêt.e de partir pour aller au Colisée.`,
-            "location": "quelque part à la ville de Rome",
+            "prompt": `Enfin, vous êtes prêt.e à partir pour aller au Colisée.`,
+            "location": "quelque part dans la ville de Rome",
             "choices": [
                 {
-                    "buttonLabel": "Avancer au Colisée",
+                    "buttonLabel": "Avancez vers le Colisée",
                     "nextScene": "scene1"
                 },
             ],
@@ -59,11 +59,11 @@ export const translation = {
                     
                     Oups.`
             ,
-            "prompt": `Peu importe. Il faut continuer...`,
-            "location": "quelque part à la ville de Rome",
+            "prompt": `Tant pis. Il faut continuer...`,
+            "location": "quelque part dans la ville de Rome",
             "choices": [
                 {
-                    "buttonLabel": "Avancer au Colisée",
+                    "buttonLabel": "Avancez vers le Colisée",
                     "nextScene": "scene1"
                 },
             ],
@@ -73,10 +73,10 @@ export const translation = {
         "scene1": {
             "key": "scene1",
             "description": 
-                    `Après du temps, vous entrez enfin le cœur de la ville. Le Colisée n'est pas maintenant très loin. Vous tombez sur une forche avec trois chemins possibles. `
+                    `Après quelque temps, vous entrez enfin le cœur de la ville. Le Colisée n'est plus très loin maintenant. Toutefois, vous tombez sur plusieurs chemins possibles.`
             ,
             "prompt": `Vous allez...`,
-            "location": "quelque part à la ville de Rome",
+            "location": "quelque part dans la ville de Rome",
             "choices": [
                 {
                     "buttonLabel": "À gauche, vers le nord de la ville.",
@@ -95,15 +95,15 @@ export const translation = {
             "description": 
                     `Parfait! Mais malheureusement, il y a un problème....
                     
-                    Le projet n'est pas encore fini! :( Désolé, cher joueur.
+                    Le projet n'est pas encore terminé! :( Désolé, cher joueur / chère joueuse.
     
-                    Si vous voulez suivre le progrès de ce projet, regardez le lien suivant: https://github.com/kpatenio/ovniAventures. Un jour, il y aura plus à faire dans ce jeu!
+                    Si vous voulez suivre l'évolution de ce projet, veuillez consulter le lien suivant: https://github.com/kpatenio/ovniAventures. Un jour, il y aura plus à faire dans ce jeu!
                         
-                    Merci d'avoir regardé mon projet et n'oubliez pas de prendre soin de vous!
+                    Merci d'avoir joué mon jeu d'aventure de texte et prenez soin de vous!
                     `
             ,
             "prompt": `- Katherine Patenio`,
-            "location": "quelque part à la ville de Rome",
+            "location": "quelque part dans la ville de Rome",
             "choices": [
             ],
         },

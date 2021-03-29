@@ -15,7 +15,7 @@ import {
     makeStyles
 } from '@material-ui/core/styles';
 import {
-    FONTS,
+    FONTS, KEYS,
 } from '../constants';
 import alien from '../images/alien-transparent.png';
 import ufo from '../images/ufo.png'
@@ -65,9 +65,11 @@ export default function Header() {
 
     const onClickLanguageButtonHandler = () => {
         if (i18n.language === 'en') {
-            i18n.changeLanguage('fr')
+            i18n.changeLanguage('fr');
+            sessionStorage.setItem(KEYS.playerLanguage, 'fr');
         } else {
-            i18n.changeLanguage('en')
+            i18n.changeLanguage('en');
+            sessionStorage.setItem(KEYS.playerLanguage, 'en');
         }
     }
 

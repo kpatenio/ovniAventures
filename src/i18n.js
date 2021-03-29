@@ -4,6 +4,7 @@ import { translation as romeEventsFR } from "./events/singleplayer/romeEvents/ro
 import { translation as romeEventsEN } from "./events/singleplayer/romeEvents/romeEventsEN";
 import fr from './locales/fr/fr.json';
 import en from './locales/en/en.json';
+import { KEYS } from "./constants";
 
 function createNewObjToJsonify(obj) {
     const entries = Object.entries(obj);
@@ -54,7 +55,8 @@ i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    lng: "en",
+    lng: sessionStorage.getItem(KEYS.playerLanguage), // read what is stored whenever we refresh
+    fallbackLng: 'en',
 
     keySeparator: false, // we do not use keys in form messages.welcome
 

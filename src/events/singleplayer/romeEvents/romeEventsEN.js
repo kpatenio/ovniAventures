@@ -3,7 +3,7 @@ export const translation = {
         "scene0": {
             "key": "scene0",
             "description": 
-                    `Ah, what a sunny day. Today is the final day of the tournament at the Colliseum. You have been waiting for this moment. Eager to attend, you get up prepare for the day. But first, you feeling like eating a delicious, copious meal.`
+                    `Ah, what a sunny day. Today is the final day of the tournament at the Colliseum. You have been waiting for this moment. Eager to attend, you get up and prepare for the day. But first, you feeling like eating a delicious, copious meal.`
             ,
             "prompt": `What would you like to have?`,
             "location": "somewhere in the middle of Rome",
@@ -63,7 +63,7 @@ export const translation = {
             "location": "somewhere in the middle of Rome",
             "choices": [
                 {
-                    "buttonLabel": "Head towards to the Colliseum.",
+                    "buttonLabel": "Head towards the Colliseum.",
                     "nextScene": "scene1"
                 },
             ],

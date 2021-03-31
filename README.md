@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e2370e27-35e7-4e12-bad4-968e0a41481c/deploy-status)](https://app.netlify.com/sites/nervous-jennings-9e64a5/deploys) [![unit tests](https://github.com/kpatenio/ovniAventures/actions/workflows/main.yml/badge.svg)](https://github.com/kpatenio/ovniAventures/actions/workflows/main.yml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e2370e27-35e7-4e12-bad4-968e0a41481c/deploy-status)](https://app.netlify.com/sites/nervous-jennings-9e64a5/deploys) [![unit tests](https://github.com/kpatenio/ovniAventures/actions/workflows/main.yml/badge.svg)](https://github.com/kpatenio/ovniAventures/actions/workflows/main.yml) [![ovniAventures](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/pr7p6a&style=flat-square&logo=cypress)](https://dashboard.cypress.io/projects/pr7p6a/runs)
 
 # ovniAventures
 #### Français

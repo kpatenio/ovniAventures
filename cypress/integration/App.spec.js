@@ -51,14 +51,14 @@ describe('landing page', () => {
         .should('not.be.disabled')
     })
 
-    it.skip('ensures click left arrow button moves backwards for character select', () => {
+    it('ensures click left arrow button moves backwards for character select', () => {
         cy.get('button').filter(`[data-testid="character-select-left"]`).click()
-        cy.get('img').filter('[data-testid="character-select-image"]').should('have.attr', 'human3')
+        cy.get('img').filter('[data-testid="character-select-image"]').should('have.attr', 'alt').and('match', /human4/)
     })
 
-    it.skip('ensures click right arrow button moves backwards for character select', () => {
+    it('ensures click right arrow button moves backwards for character select', () => {
         cy.get('button').filter(`[data-testid="character-select-right"]`).click()
-        cy.get('img').filter('[data-testid="character-select-image"]').should('have.attr', 'human1')
+        cy.get('img').filter('[data-testid="character-select-image"]').should('have.attr', 'alt').and('match', /human1/)
     })
 
     it('ensures that we navigate to `/solo` after clicking the new game button with input', () => {

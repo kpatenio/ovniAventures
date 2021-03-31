@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e2370e27-35e7-4e12-bad4-968e0a41481c/deploy-status)](https://app.netlify.com/sites/nervous-jennings-9e64a5/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e2370e27-35e7-4e12-bad4-968e0a41481c/deploy-status)](https://app.netlify.com/sites/nervous-jennings-9e64a5/deploys) [![unit tests](https://github.com/kpatenio/ovniAventures/actions/workflows/main.yml/badge.svg)](https://github.com/kpatenio/ovniAventures/actions/workflows/main.yml)
 
 # ovniAventures
 #### Français

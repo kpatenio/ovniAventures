@@ -42,7 +42,7 @@ export default function CharacterSelect({onClickLeft, onClickRight, playerAvatar
                     <Button onClick={onClickLeft} data-testid="character-select-left"><ArrowBackIosIcon/></Button>
                 </Grid>
                 <Grid item>
-                    <img src={humans[playerAvatarId]} className={classes.image} alt={`human${playerAvatarId+1}`}></img>
+                    <img src={humans[playerAvatarId]} data-testid="character-select-image" className={classes.image} alt={`human${playerAvatarId+1}`}></img>
                 </Grid>
                 <Grid item>
                     <Button onClick={onClickRight} data-testid="character-select-right"><ArrowForwardIosIcon/></Button>

@@ -8,8 +8,6 @@ import {
 import LandingPage from './components/LandingPage';
 import Header from './components/Header';
 import GamePageSolo from './components/singleplayer/GamePageSolo';
-import GamePageMultiPlayer from './components/multiplayer/GamePageMultiplayer';
-// import LobbyPageMultiplayer from './components/multiplayer/LobbyPageMultiplayer';
 import Footer from './components/Footer';
 
 function App() {

@@ -168,7 +168,7 @@ function LandingPage() {
                             {t('landingLabelInputName')}
                         </InputLabel>
 
-                        <TextField onChange={onChangeNameModalInput} variant="standard" fullWidth InputProps={{className: classes.textfield}}/>
+                        <TextField onChange={onChangeNameModalInput} placeholder={t('landingPlaceholderInputName')} variant="standard" fullWidth InputProps={{className: classes.textfield}}/>
                         <Button className={classes.button} onClick={onClickSolo} disabled={isInvalidName} variant="contained" color="primary" size="large" fullWidth disableRipple disableTouchRipple disableFocusRipple>
                             {t('landingLabelNewGame')}
                         </Button>

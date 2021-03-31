@@ -39,13 +39,13 @@ export default function CharacterSelect({onClickLeft, onClickRight, playerAvatar
         <Paper className={classes.paper}>
             <Grid item container justify="center" alignItems="center">
                 <Grid item>
-                    <Button onClick={onClickLeft}><ArrowBackIosIcon/></Button>
+                    <Button onClick={onClickLeft} data-testid="character-select-left"><ArrowBackIosIcon/></Button>
                 </Grid>
                 <Grid item>
-                    <img src={humans[playerAvatarId]} className={classes.image}></img>
+                    <img src={humans[playerAvatarId]} className={classes.image} alt={`human${playerAvatarId+1}`}></img>
                 </Grid>
                 <Grid item>
-                    <Button onClick={onClickRight}><ArrowForwardIosIcon/></Button>
+                    <Button onClick={onClickRight} data-testid="character-select-right"><ArrowForwardIosIcon/></Button>
                 </Grid>
             </Grid>
             </Paper>
